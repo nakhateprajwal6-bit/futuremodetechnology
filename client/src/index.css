@@ -161,40 +161,15 @@
     animation: float 3s ease-in-out infinite;
   }
 
-  /* Vision Mission Theme Utilities */
-  .vision-card-bg {
-    background: hsl(var(--background) / 0.15);
-    border: 1px solid hsl(var(--primary) / 0.2);
+  /* Enhanced theme utilities for better consistency */
+  .theme-section {
+    background: hsl(var(--muted) / 0.3);
+    border: 1px solid hsl(var(--border) / 0.5);
   }
 
-  .dark .vision-card-bg {
-    background: hsl(var(--card) / 0.4);
-    border: 1px solid hsl(var(--primary) / 0.4);
-  }
-
-  .vision-icon-bg {
-    background: hsl(var(--primary) / 0.15);
-  }
-
-  .dark .vision-icon-bg {
-    background: hsl(var(--primary) / 0.25);
-  }
-
-  /* Improved gradient background for dark mode */
-  .gradient-bg-enhanced {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
-    position: relative;
-  }
-
-  .dark .gradient-bg-enhanced::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: hsl(var(--background) / 0.1);
-    pointer-events: none;
+  .dark .theme-section {
+    background: hsl(var(--card) / 0.3);
+    border: 1px solid hsl(var(--border) / 0.3);
   }
 
   /* Additional theme utilities for comprehensive dark mode support */
