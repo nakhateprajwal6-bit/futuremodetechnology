@@ -44,18 +44,27 @@ export default function Gallery() {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {galleryImages.map((image, index) => (
-            <div key={index} className={image.span}>
+            <div key={index} className={`${image.span} group`}>
               <img 
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover rounded-xl hover-lift cursor-pointer transition-transform duration-300"
+                className="w-full h-full object-cover rounded-xl hover-lift cursor-pointer transition-all duration-300 group-hover:scale-105"
                 data-testid={`gallery-image-${index}`}
                 onClick={() => {
                   // Open image in new tab for full view
                   window.open(image.src, '_blank');
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.open(image.src, '_blank');
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View full size image: ${image.alt}`}
               />
             </div>
           ))}

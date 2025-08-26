@@ -59,16 +59,18 @@ export default function Programs() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {programs.map((program, index) => {
             const IconComponent = program.icon;
-            const bgColorClass = program.color === "primary" ? "bg-primary/10" : "bg-secondary/10";
+            const bgColorClass = program.color === "primary" ? "bg-primary/10 dark:bg-primary/20" : "bg-secondary/10 dark:bg-secondary/20";
             const textColorClass = program.color === "primary" ? "text-primary" : "text-secondary";
             return (
               <div 
                 key={program.title} 
-                className="bg-card rounded-xl p-6 shadow-lg hover-lift border border-border"
+                className="bg-card rounded-xl p-6 shadow-lg hover-lift border border-border transition-all duration-300 group"
                 data-testid={`program-card-${index}`}
+                role="article"
+                aria-labelledby={`program-title-${index}`}
               >
                 <div className={`w-16 h-16 ${bgColorClass} rounded-lg flex items-center justify-center mb-6`}>
                   <IconComponent className={`${textColorClass} text-2xl`} />

@@ -39,9 +39,9 @@ export default function Footer() {
           <div className="col-span-2">
             <div className="flex items-center space-x-2 mb-4" data-testid="footer-logo">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-                <img 
-                  src={logoImage} 
-                  alt="Future Mode Technology Logo" 
+                <img
+                  src={logoImage}
+                  alt="Future Mode Technology Logo"
                   className="h-10 w-10 object-contain rounded-lg"
                   data-testid="footer-logo-image"
                 />
@@ -55,13 +55,13 @@ export default function Footer() {
               {socialLinks.map((social, index) => {
                 const IconComponent = social.icon;
                 return (
-                  <button 
+                  <button
                     key={social.label}
                     onClick={() => {
                       // Open social media pages in new tab
                       const socialUrls = {
                         facebook: "https://facebook.com/futuremodetech",
-                        twitter: "https://twitter.com/futuremodetech", 
+                        twitter: "https://twitter.com/futuremodetech",
                         linkedin: "https://linkedin.com/company/futuremodetech",
                         instagram: "https://instagram.com/futuremodetech"
                       };
@@ -78,7 +78,7 @@ export default function Footer() {
               })}
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4" data-testid="footer-quick-links-title">Quick Links</h3>
             <ul className="space-y-2">
@@ -95,14 +95,14 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4" data-testid="footer-support-title">Support</h3>
             <ul className="space-y-2">
               {supportLinks.map((link) => (
                 <li key={link.href}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-background/80 hover:text-background transition-colors"
                     data-testid={`footer-support-link-${link.label.toLowerCase().replace(' ', '-')}`}
                   >
@@ -113,7 +113,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-background/20 mt-8 pt-8 text-center">
           <p className="text-background/60" data-testid="footer-copyright">
             © 2025 Future Mode Technology. All rights reserved. | Designed with ❤️ for education

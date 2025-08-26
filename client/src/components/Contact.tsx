@@ -61,7 +61,7 @@ export default function Contact() {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
         title: "Please fill in all required fields",
         description: "First name, last name, email, and message are required.",
@@ -72,7 +72,7 @@ export default function Contact() {
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
+    if (!emailRegex.test(formData.email.trim())) {
       toast({
         title: "Invalid email address",
         description: "Please enter a valid email address.",
@@ -81,7 +81,27 @@ export default function Contact() {
       return;
     }
 
-    contactMutation.mutate(formData);
+    // Phone validation (if provided)
+    if (formData.phone && formData.phone.trim()) {
+      const phoneRegex = /^[\+]?[\d\s\-\(\)]{10,}$/;
+      if (!phoneRegex.test(formData.phone.trim())) {
+        toast({
+          title: "Invalid phone number",
+          description: "Please enter a valid phone number.",
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
+    contactMutation.mutate({
+      ...formData,
+      firstName: formData.firstName.trim(),
+      lastName: formData.lastName.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      message: formData.message.trim()
+    });
   };
 
   const handleInputChange = (field: keyof ContactForm, value: string) => {
