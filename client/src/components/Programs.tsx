@@ -83,7 +83,17 @@ export default function Programs() {
                   <span className="text-sm text-muted-foreground" data-testid={`program-duration-${index}`}>
                     {program.duration}
                   </span>
-                  <Button variant="link" className="text-primary font-semibold p-0 h-auto" data-testid={`button-learn-more-${index}`}>
+                  <Button 
+                    variant="link" 
+                    className="text-primary font-semibold p-0 h-auto" 
+                    data-testid={`button-learn-more-${index}`}
+                    onClick={() => {
+                      const contactSection = document.querySelector("#contact");
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  >
                     Learn More
                   </Button>
                 </div>

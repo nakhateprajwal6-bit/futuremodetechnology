@@ -43,6 +43,10 @@ export default function Hero() {
               size="lg"
               className="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary"
               data-testid="button-watch-demo"
+              onClick={() => {
+                // Open demo video in new tab or show modal
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+              }}
             >
               <Play className="mr-2 h-4 w-4" />
               Watch Demo
@@ -51,7 +55,15 @@ export default function Hero() {
         </div>
       </div>
       
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
+        onClick={() => {
+          const aboutSection = document.querySelector("#about");
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
+      >
         <ChevronDown className="text-white text-2xl" data-testid="scroll-indicator" />
       </div>
     </section>

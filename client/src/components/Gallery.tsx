@@ -52,6 +52,10 @@ export default function Gallery() {
                 alt={image.alt}
                 className="w-full h-full object-cover rounded-xl hover-lift cursor-pointer transition-transform duration-300"
                 data-testid={`gallery-image-${index}`}
+                onClick={() => {
+                  // Open image in new tab for full view
+                  window.open(image.src, '_blank');
+                }}
               />
             </div>
           ))}

@@ -49,15 +49,25 @@ export default function Footer() {
               {socialLinks.map((social, index) => {
                 const IconComponent = social.icon;
                 return (
-                  <a 
+                  <button 
                     key={social.label}
-                    href={social.href} 
+                    onClick={() => {
+                      // Open social media pages in new tab
+                      const socialUrls = {
+                        facebook: "https://facebook.com/futuremodetech",
+                        twitter: "https://twitter.com/futuremodetech", 
+                        linkedin: "https://linkedin.com/company/futuremodetech",
+                        instagram: "https://instagram.com/futuremodetech"
+                      };
+                      const url = socialUrls[social.label.toLowerCase() as keyof typeof socialUrls];
+                      if (url) window.open(url, '_blank');
+                    }}
                     className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
                     aria-label={social.label}
                     data-testid={`social-link-${social.label.toLowerCase()}`}
                   >
                     <IconComponent className="h-4 w-4" />
-                  </a>
+                  </button>
                 );
               })}
             </div>

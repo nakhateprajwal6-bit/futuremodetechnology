@@ -64,6 +64,18 @@ export default function Contact() {
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all required fields",
+        description: "First name, last name, email, and message are required.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid email address",
+        description: "Please enter a valid email address.",
         variant: "destructive",
       });
       return;
