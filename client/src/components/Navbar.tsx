@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { GraduationCap, Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoImage from "@/assets/logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,8 +60,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2" data-testid="navbar-logo">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <GraduationCap className="text-primary-foreground text-xl" />
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+              <img 
+                src={logoImage} 
+                alt="Future Mode Technology Logo" 
+                className="h-10 w-10 object-contain rounded-lg"
+                data-testid="logo-image"
+              />
             </div>
             <span className="text-xl font-bold text-primary">Future Mode Technology</span>
           </div>

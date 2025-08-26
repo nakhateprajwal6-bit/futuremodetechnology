@@ -1,4 +1,5 @@
 import { GraduationCap, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import logoImage from "@/assets/logo.png";
 
 export default function Footer() {
   const quickLinks = [
@@ -37,8 +38,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="col-span-2">
             <div className="flex items-center space-x-2 mb-4" data-testid="footer-logo">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <GraduationCap className="text-primary-foreground text-xl" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                <img 
+                  src={logoImage} 
+                  alt="Future Mode Technology Logo" 
+                  className="h-10 w-10 object-contain rounded-lg"
+                  data-testid="footer-logo-image"
+                />
               </div>
               <span className="text-xl font-bold">Future Mode Technology</span>
             </div>
