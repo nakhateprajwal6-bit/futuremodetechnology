@@ -9,17 +9,17 @@ export default function Footer() {
   ];
 
   const supportLinks = [
-    { href: "#", label: "Help Center" },
-    { href: "#", label: "Privacy Policy" },
-    { href: "#", label: "Terms of Service" },
-    { href: "#", label: "FAQ" },
+    { href: "#help", label: "Help Center" },
+    { href: "#privacy", label: "Privacy Policy" },
+    { href: "#terms", label: "Terms of Service" },
+    { href: "#faq", label: "FAQ" },
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Facebook, href: "#facebook", label: "Facebook" },
+    { icon: Twitter, href: "#twitter", label: "Twitter" },
+    { icon: Linkedin, href: "#linkedin", label: "LinkedIn" },
+    { icon: Instagram, href: "#instagram", label: "Instagram" },
   ];
 
   const handleNavClick = (href: string) => {
