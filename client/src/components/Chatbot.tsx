@@ -60,7 +60,7 @@ export default function Chatbot() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(false)}
-              className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
+              className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
               data-testid="button-close-chat"
             >
               <X className="h-4 w-4" />
@@ -121,7 +121,7 @@ export default function Chatbot() {
       <Button
         onClick={() => setIsOpen(!isOpen)}
         size="lg"
-        className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl animate-float bg-primary text-primary-foreground hover:bg-blue-700"
+        className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl animate-float bg-primary text-primary-foreground hover:bg-primary/90"
         data-testid="button-toggle-chatbot"
       >
         <MessageCircle className="h-6 w-6" />

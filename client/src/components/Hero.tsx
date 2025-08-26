@@ -18,7 +18,7 @@ export default function Hero() {
           alt="Modern university campus with contemporary architecture" 
           className="w-full h-full object-cover" 
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

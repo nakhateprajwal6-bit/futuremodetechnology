@@ -119,9 +119,14 @@
   }
 
   .glass-effect {
-    background: rgba(255, 255, 255, 0.1);
+    background: hsl(var(--background) / 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+
+  .dark .glass-effect {
+    background: hsl(var(--foreground) / 0.05);
+    border: 1px solid hsl(var(--border) / 0.3);
   }
 
   .hover-lift {
@@ -130,7 +135,11 @@
 
   .hover-lift:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px hsl(var(--foreground) / 0.1);
+  }
+
+  .dark .hover-lift:hover {
+    box-shadow: 0 20px 40px hsl(var(--background) / 0.3);
   }
 
   .text-gradient {
@@ -150,6 +159,79 @@
 
   .animate-float {
     animation: float 3s ease-in-out infinite;
+  }
+
+  /* Vision Mission Theme Utilities */
+  .vision-card-bg {
+    background: hsl(var(--background) / 0.15);
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  .dark .vision-card-bg {
+    background: hsl(var(--card) / 0.4);
+    border: 1px solid hsl(var(--primary) / 0.4);
+  }
+
+  .vision-icon-bg {
+    background: hsl(var(--primary) / 0.15);
+  }
+
+  .dark .vision-icon-bg {
+    background: hsl(var(--primary) / 0.25);
+  }
+
+  /* Improved gradient background for dark mode */
+  .gradient-bg-enhanced {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    position: relative;
+  }
+
+  .dark .gradient-bg-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: hsl(var(--background) / 0.1);
+    pointer-events: none;
+  }
+
+  /* Additional theme utilities for comprehensive dark mode support */
+  .theme-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--card-foreground));
+  }
+
+  .theme-button-hover {
+    transition: all 0.2s ease;
+  }
+
+  .theme-button-hover:hover {
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  .dark .theme-button-hover:hover {
+    background: hsl(var(--accent) / 0.8);
+  }
+
+  /* Ensure proper text contrast in all themes */
+  .theme-text-primary {
+    color: hsl(var(--primary));
+  }
+
+  .theme-text-secondary {
+    color: hsl(var(--secondary));
+  }
+
+  .dark .theme-text-primary {
+    color: hsl(var(--primary) / 0.9);
+  }
+
+  .dark .theme-text-secondary {
+    color: hsl(var(--secondary) / 0.9);
   }
 }
 
