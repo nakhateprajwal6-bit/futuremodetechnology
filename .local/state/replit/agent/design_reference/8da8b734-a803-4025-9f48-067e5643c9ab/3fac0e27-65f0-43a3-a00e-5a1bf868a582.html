@@ -1,0 +1,814 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Mode Technology - Educational Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    popover: {
+                        DEFAULT: "var(--popover)",
+                        foreground: "var(--popover-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    destructive: {
+                        DEFAULT: "var(--destructive)",
+                        foreground: "var(--destructive-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    sans: ["Inter", "sans-serif"],
+                },
+                animation: {
+                    'fade-in': 'fadeIn 0.6s ease-in-out',
+                    'slide-up': 'slideUp 0.6s ease-out',
+                    'float': 'float 3s ease-in-out infinite',
+                }
+            },
+        }
+    };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --background: hsl(210 40% 98%);
+            --foreground: hsl(222.2 84% 4.9%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222.2 84% 4.9%);
+            --popover: hsl(0 0% 100%);
+            --popover-foreground: hsl(222.2 84% 4.9%);
+            --primary: hsl(214 100% 50%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(262 83% 58%);
+            --secondary-foreground: hsl(210 40% 98%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215.4 16.3% 46.9%);
+            --accent: hsl(267 84% 81%);
+            --accent-foreground: hsl(222.2 84% 4.9%);
+            --destructive: hsl(0 84.2% 60.2%);
+            --destructive-foreground: hsl(210 40% 98%);
+            --border: hsl(214.3 31.8% 91.4%);
+            --input: hsl(214.3 31.8% 91.4%);
+            --ring: hsl(214 100% 50%);
+            --radius: 0.75rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground">
+    <!-- @COMPONENT: Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-primary-foreground text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-primary">Future Mode Technology</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-foreground hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="text-foreground hover:text-primary transition-colors">About</a>
+                    <a href="#vision" class="text-foreground hover:text-primary transition-colors">Vision</a>
+                    <a href="#programs" class="text-foreground hover:text-primary transition-colors">Programs</a>
+                    <a href="#gallery" class="text-foreground hover:text-primary transition-colors">Gallery</a>
+                    <a href="#contact" class="text-foreground hover:text-primary transition-colors">Contact</a>
+                </div>
+                
+                <button class="md:hidden p-2" data-event="click:toggleMobileMenu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden fixed top-16 left-0 w-full h-screen glass-effect z-40">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="#home" class="text-foreground hover:text-primary transition-colors py-2">Home</a>
+                <a href="#about" class="text-foreground hover:text-primary transition-colors py-2">About</a>
+                <a href="#vision" class="text-foreground hover:text-primary transition-colors py-2">Vision</a>
+                <a href="#programs" class="text-foreground hover:text-primary transition-colors py-2">Programs</a>
+                <a href="#gallery" class="text-foreground hover:text-primary transition-colors py-2">Gallery</a>
+                <a href="#contact" class="text-foreground hover:text-primary transition-colors py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navbar -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Modern university campus background -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080" 
+                 alt="Modern university campus with contemporary architecture" 
+                 class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-slide-up">
+                <h1 class="hero-title text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Future Mode <span class="text-gradient">Technology</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    Empowering minds through innovative educational technology solutions that shape tomorrow's leaders
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-blue-700 transition-all hover-lift">
+                        Explore Programs
+                    </button>
+                    <button class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-primary transition-all">
+                        Watch Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: About Section -->
+    <section id="about" class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">About Future Mode Technology</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Leading the revolution in educational technology with innovative solutions that transform learning experiences
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-bold text-foreground">Pioneering Educational Excellence</h3>
+                    <p class="text-lg text-muted-foreground">
+                        Since our inception, we have been at the forefront of educational innovation, 
+                        developing cutting-edge technology solutions that empower educators and inspire students 
+                        to achieve their full potential.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">500+</div>
+                            <div class="text-muted-foreground">Students Enrolled</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-2">15+</div>
+                            <div class="text-muted-foreground">Expert Faculty</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">95%</div>
+                            <div class="text-muted-foreground">Success Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-2">24/7</div>
+                            <div class="text-muted-foreground">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Technology education classroom -->
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern technology education classroom with students using computers" 
+                         class="rounded-xl shadow-lg hover-lift" />
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-primary rounded-full flex items-center justify-center animate-float">
+                        <i class="fas fa-laptop-code text-primary-foreground text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Vision & Mission Section -->
+    <section id="vision" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">Vision & Mission</h2>
+                <p class="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+                    Driving educational transformation through technology and innovation
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover-lift">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-primary-foreground text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary-foreground mb-4">Our Vision</h3>
+                    <p class="text-primary-foreground/90 text-lg">
+                        To be the global leader in educational technology, creating a world where quality education 
+                        is accessible to everyone, everywhere, empowering learners to achieve their dreams and 
+                        contribute meaningfully to society.
+                    </p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-8 hover-lift">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-primary-foreground text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary-foreground mb-4">Our Mission</h3>
+                    <p class="text-primary-foreground/90 text-lg">
+                        To develop innovative educational technologies and provide exceptional learning experiences 
+                        that inspire curiosity, foster creativity, and build the skills needed for success in 
+                        the digital age.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Vision & Mission Section -->
+
+    <!-- @COMPONENT: Programs Section -->
+    <section id="programs" class="py-20 bg-muted/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">Our Programs</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Comprehensive technology education programs designed to meet industry demands
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- @MAP: programs.map(program => ( -->
+                <div class="bg-card rounded-xl p-6 shadow-lg hover-lift border border-border">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-card-foreground mb-3">Software Development</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Master modern programming languages and frameworks with hands-on projects and industry mentorship.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-muted-foreground">12 Months</span>
+                        <button class="text-primary font-semibold hover:underline">Learn More</button>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl p-6 shadow-lg hover-lift border border-border">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-card-foreground mb-3">Artificial Intelligence</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Explore machine learning, deep learning, and AI applications with cutting-edge tools and techniques.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-muted-foreground">18 Months</span>
+                        <button class="text-primary font-semibold hover:underline">Learn More</button>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl p-6 shadow-lg hover-lift border border-border">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-card-foreground mb-3">Cloud Computing</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Learn cloud architecture, deployment, and management across major platforms like AWS and Azure.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-muted-foreground">10 Months</span>
+                        <button class="text-primary font-semibold hover:underline">Learn More</button>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl p-6 shadow-lg hover-lift border border-border">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-card-foreground mb-3">Cybersecurity</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Protect digital assets with comprehensive security protocols, ethical hacking, and risk management.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-muted-foreground">14 Months</span>
+                        <button class="text-primary font-semibold hover:underline">Learn More</button>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl p-6 shadow-lg hover-lift border border-border">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-card-foreground mb-3">Data Science</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Analyze complex data sets and extract insights using statistical methods and visualization tools.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-muted-foreground">16 Months</span>
+                        <button class="text-primary font-semibold hover:underline">Learn More</button>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl p-6 shadow-lg hover-lift border border-border">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-card-foreground mb-3">Mobile Development</h3>
+                    <p class="text-muted-foreground mb-4">
+                        Build native and cross-platform mobile applications for iOS and Android using modern frameworks.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-muted-foreground">11 Months</span>
+                        <button class="text-primary font-semibold hover:underline">Learn More</button>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Programs Section -->
+
+    <!-- @COMPONENT: Gallery Section -->
+    <section id="gallery" class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">Campus Gallery</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Explore our state-of-the-art facilities and vibrant learning environment
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Modern university campus view -->
+                <div class="col-span-2 row-span-2">
+                    <img src="https://pixabay.com/get/g321152a1e8adea0b4cf028ee7ecf998c4ac05ba57373326177db36c768be4d3f668d3d198ca78d88876376c34b4389493e9809dc693028579641a308b073333d_1280.jpg" 
+                         alt="Modern university campus with students walking between buildings" 
+                         class="w-full h-full object-cover rounded-xl hover-lift" />
+                </div>
+                
+                <!-- Technology education classroom -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                         alt="Students working with computers in a modern classroom" 
+                         class="w-full h-full object-cover rounded-xl hover-lift" />
+                </div>
+                
+                <!-- Educational technology equipment -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                         alt="Advanced technology equipment and lab setup" 
+                         class="w-full h-full object-cover rounded-xl hover-lift" />
+                </div>
+                
+                <!-- Student graduation ceremony -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                         alt="Happy graduates in caps and gowns celebrating" 
+                         class="w-full h-full object-cover rounded-xl hover-lift" />
+                </div>
+                
+                <!-- Professional team meeting -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                         alt="Professional team meeting with laptops and collaboration" 
+                         class="w-full h-full object-cover rounded-xl hover-lift" />
+                </div>
+                
+                <!-- Additional technology classroom -->
+                <div class="col-span-2">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" 
+                         alt="Programming classroom with multiple monitors and coding workstations" 
+                         class="w-full h-full object-cover rounded-xl hover-lift" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Gallery Section -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <section id="contact" class="py-20 bg-muted/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">Get In Touch</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Ready to start your tech journey? Contact us today and let's discuss your goals
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-foreground mb-1">Address</h3>
+                            <p class="text-muted-foreground">123 Technology Drive, Innovation Hub, Tech City 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-foreground mb-1">Phone</h3>
+                            <p class="text-muted-foreground">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-foreground mb-1">Email</h3>
+                            <p class="text-muted-foreground">info@futuremodetech.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clock text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-foreground mb-1">Hours</h3>
+                            <p class="text-muted-foreground">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl p-8 shadow-lg border border-border">
+                    <h3 class="text-2xl font-bold text-card-foreground mb-6">Send us a message</h3>
+                    <form class="space-y-6" data-implementation="Should validate form before submission">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-card-foreground mb-2">First Name</label>
+                                <input type="text" 
+                                       class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
+                                       placeholder="John" 
+                                       data-mock="true" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-card-foreground mb-2">Last Name</label>
+                                <input type="text" 
+                                       class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
+                                       placeholder="Doe" 
+                                       data-mock="true" />
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-card-foreground mb-2">Email</label>
+                            <input type="email" 
+                                   class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
+                                   placeholder="john@example.com" 
+                                   data-mock="true" />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-card-foreground mb-2">Phone</label>
+                            <input type="tel" 
+                                   class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
+                                   placeholder="+1 (555) 123-4567" 
+                                   data-mock="true" />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-card-foreground mb-2">Program Interest</label>
+                            <select class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" data-mock="true">
+                                <option>Select a program</option>
+                                <option>Software Development</option>
+                                <option>Artificial Intelligence</option>
+                                <option>Cloud Computing</option>
+                                <option>Cybersecurity</option>
+                                <option>Data Science</option>
+                                <option>Mobile Development</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-card-foreground mb-2">Message</label>
+                            <textarea rows="4" 
+                                      class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent"
+                                      placeholder="Tell us about your goals and interests..." 
+                                      data-mock="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                                data-event="click:handleSubmit">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-foreground text-background py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-primary-foreground text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">Future Mode Technology</span>
+                    </div>
+                    <p class="text-background/80 mb-6 max-w-md">
+                        Empowering the next generation of technology leaders through innovative education and cutting-edge curriculum.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-background/80 hover:text-background transition-colors">About Us</a></li>
+                        <li><a href="#programs" class="text-background/80 hover:text-background transition-colors">Programs</a></li>
+                        <li><a href="#gallery" class="text-background/80 hover:text-background transition-colors">Gallery</a></li>
+                        <li><a href="#contact" class="text-background/80 hover:text-background transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-background/80 hover:text-background transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-background/80 hover:text-background transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-background/80 hover:text-background transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-background/80 hover:text-background transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-background/20 mt-8 pt-8 text-center">
+                <p class="text-background/60">
+                    © 2025 Future Mode Technology. All rights reserved. | Designed with ❤️ for education
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @COMPONENT: Chatbot -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- @STATE: isOpen:boolean = false -->
+        <div class="chatbot-container">
+            <!-- Chat Window (hidden by default) -->
+            <div class="hidden bg-card rounded-xl shadow-2xl w-80 h-96 border border-border mb-4 overflow-hidden" id="chatWindow" data-implementation="Should show/hide based on chatbot state">
+                <div class="bg-primary text-primary-foreground p-4 flex justify-between items-center">
+                    <h3 class="font-semibold">Tech Support Assistant</h3>
+                    <button class="text-primary-foreground/80 hover:text-primary-foreground" data-event="click:closeChatbot">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="h-80 p-4 space-y-3 overflow-y-auto">
+                    <div class="bg-muted rounded-lg p-3 max-w-xs">
+                        <p class="text-sm" data-mock="true">Hi! I'm here to help you with any questions about our programs. How can I assist you today?</p>
+                    </div>
+                    <!-- @FUNCTIONALITY: This chatbot should implement real-time messaging functionality -->
+                </div>
+                <div class="p-4 border-t border-border">
+                    <div class="flex space-x-2">
+                        <input type="text" 
+                               placeholder="Type your message..." 
+                               class="flex-1 px-3 py-2 border border-input rounded-lg text-sm focus:ring-2 focus:ring-ring focus:border-transparent"
+                               data-mock="true" />
+                        <button class="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium" data-event="click:sendMessage">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Toggle Button -->
+            <button class="w-14 h-14 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-blue-700 transition-all hover-lift flex items-center justify-center animate-float"
+                    data-event="click:toggleChatbot">
+                <i class="fas fa-comments text-xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Chatbot -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        (function() {
+            // Mobile menu functionality
+            let mobileMenuOpen = false;
+            const mobileMenuButton = document.querySelector('[data-event="click:toggleMobileMenu"]');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenuOpen = !mobileMenuOpen;
+                    if (mobileMenuOpen) {
+                        mobileMenu.classList.add('open');
+                    } else {
+                        mobileMenu.classList.remove('open');
+                    }
+                });
+            }
+            
+            // Chatbot functionality
+            let chatbotOpen = false;
+            const chatToggle = document.querySelector('[data-event="click:toggleChatbot"]');
+            const chatWindow = document.getElementById('chatWindow');
+            const chatClose = document.querySelector('[data-event="click:closeChatbot"]');
+            
+            if (chatToggle && chatWindow) {
+                chatToggle.addEventListener('click', function() {
+                    chatbotOpen = !chatbotOpen;
+                    if (chatbotOpen) {
+                        chatWindow.classList.remove('hidden');
+                    } else {
+                        chatWindow.classList.add('hidden');
+                    }
+                });
+            }
+            
+            if (chatClose && chatWindow) {
+                chatClose.addEventListener('click', function() {
+                    chatbotOpen = false;
+                    chatWindow.classList.add('hidden');
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        if (mobileMenuOpen) {
+                            mobileMenuOpen = false;
+                            mobileMenu?.classList.remove('open');
+                        }
+                    }
+                });
+            });
+            
+            // Form submission handling
+            const contactForm = document.querySelector('form[data-implementation*="validate"]');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and submission
+                    console.log('Form submitted - TODO: Implement validation and API call');
+                });
+            }
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for animation
+            document.querySelectorAll('.hover-lift').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>

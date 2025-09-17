@@ -25,15 +25,15 @@ export default function About() {
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2" data-testid="stat-students">500+</div>
-                <div className="text-muted-foreground">Students Enrolled</div>
+                <div className="text-3xl font-bold text-primary mb-2" data-testid="stat-students">100+</div>
+                <div className="text-muted-foreground">Project & Products</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-secondary mb-2" data-testid="stat-faculty">15+</div>
+                <div className="text-3xl font-bold text-secondary mb-2" data-testid="stat-faculty">10+</div>
                 <div className="text-muted-foreground">Expert Faculty</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2" data-testid="stat-success-rate">95%</div>
+                <div className="text-3xl font-bold text-primary mb-2" data-testid="stat-success-rate">99%</div>
                 <div className="text-muted-foreground">Success Rate</div>
               </div>
               <div className="text-center">

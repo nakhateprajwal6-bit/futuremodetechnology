@@ -2,41 +2,13 @@ import { useState, useEffect } from "react";
 import { GraduationCap, Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoImage from "@/assets/logo.png";
+import logoImage from "@/assets/logo-.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false); // Assuming theme state is managed here
+  const [isDark, setIsDark] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldUseDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-
-    setIsDark(shouldUseDark);
-    document.documentElement.classList.toggle('dark', shouldUseDark);
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    document.documentElement.classList.toggle('dark', newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
-  };
-
-  // Original navItems structure had 'label', the changes use 'name' and 'href'.
-  // Reconciling to use 'label' and 'href' as per original code.
   const navItems = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
@@ -46,99 +18,134 @@ export default function Navbar() {
     { href: "#contact", label: "Contact" },
   ];
 
-  const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsOpen(false); // Close mobile menu after navigation
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const useDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    setIsDark(useDark);
+    document.documentElement.classList.toggle("dark", useDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    document.documentElement.classList.toggle("dark", newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
   };
 
-  // For theme toggle in the changes, it expects a 'theme' variable, not 'isDark'.
-  // Using 'isDark' here to match the existing state management.
-  const theme = isDark ? "dark" : "light"; 
+  const handleNavClick = (href: string) => {
+  if (href === "#home") {
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top for Home
+  } else {
+    const element = document.querySelector(href);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  }
+  setIsOpen(false);
+};
+
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsOpen(false);
+  };
+
+  const themeIcon = isDark ? <Sun className="h-5 w-5 text-white" /> : <Moon className="h-5 w-5 text-white" />;
 
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "glass-effect border-b border-border shadow-lg" : "bg-transparent"
-    )}>
+    <nav
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled
+          ? "bg-blue-300 dark:bg-blue-800 border-b border-border shadow-lg"
+          : "bg-transparent"
+      )}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-2" data-testid="navbar-logo">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-              <img 
-                src={logoImage} 
-                alt="Future Mode Technology Logo" 
-                className="h-10 w-10 object-contain rounded-lg"
-                data-testid="logo-image"
-              />
-            </div>
-            <span className="text-xl font-bold text-primary">Future Mode Technology</span>
+          {/* Logo */}
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={scrollToTop}>
+            <img src={logoImage} alt="Logo" className="w-10 h-10 rounded-full border-2 border-gray-300" />
+            <h1 className="text-2xl font-bold">
+              <span className="text-blue-300 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+                FutureMode Technology
+              </span>
+            </h1>
           </div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex space-x-6" role="navigation" aria-label="Main navigation">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-foreground hover:text-primary transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-2 py-1"
-                  data-testid={`nav-link-${item.label.toLowerCase()}`}
+                  className="text-white hover:text-yellow-300 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 rounded-sm px-2 py-1"
                 >
                   {item.label}
                 </button>
               ))}
             </nav>
-            <Button 
-              variant="ghost" 
-              size="icon" 
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={toggleTheme}
               className="ml-4"
-              data-testid="theme-toggle"
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {themeIcon}
             </Button>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <Button
             variant="ghost"
             size="icon"
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
-            data-testid="mobile-menu-toggle"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
           </Button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden glass-effect border-t border-border" data-testid="mobile-menu">
+        <div className="md:hidden bg-blue-600 dark:bg-blue-800 border-t border-border">
           <div className="px-4 py-2 space-y-1">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                data-testid={`mobile-nav-link-${item.label.toLowerCase()}`}
+                className="block w-full text-left px-3 py-2 text-white hover:text-yellow-300 hover:bg-blue-700 rounded-md transition-colors"
               >
                 {item.label}
               </button>
             ))}
-             <Button 
-                variant="ghost" 
-                onClick={toggleTheme}
-                className="w-full justify-start p-2 text-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-colors"
-                data-testid="mobile-theme-toggle"
-                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-              >
-                {theme === "dark" ? <Sun className="h-5 w-5 mr-2" /> : <Moon className="h-5 w-5 mr-2" />}
-                {theme === "dark" ? "Light Mode" : "Dark Mode"}
-              </Button>
+            <Button
+              variant="ghost"
+              onClick={toggleTheme}
+              className="w-full justify-start p-2 text-white hover:text-yellow-300 hover:bg-blue-700 rounded-md transition-colors"
+              aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+            >
+              {isDark ? (
+                <>
+                  <Sun className="h-5 w-5 mr-2" />
+                  Light Mode
+                </>
+              ) : (
+                <>
+                  <Moon className="h-5 w-5 mr-2" />
+                  Dark Mode
+                </>
+              )}
+            </Button>
           </div>
         </div>
       )}

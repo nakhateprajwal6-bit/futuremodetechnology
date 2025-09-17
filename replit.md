@@ -2,14 +2,6 @@
 
 Future Mode Technology is a modern educational technology platform that showcases educational programs through an interactive web application. The platform serves as a marketing and information site for an educational institution, featuring program listings, contact forms, a chat interface, and comprehensive information about the organization's vision and offerings.
 
-## Recent Changes (August 26, 2025)
-- Successfully imported and customized the Future Mode Technology website from GitHub repository
-- Built comprehensive educational technology website with modern React/TypeScript architecture
-- Implemented 6 core sections: Hero, About, Vision/Mission, Programs, Gallery, Contact, Footer
-- Added interactive chatbot with backend integration for student inquiries
-- Fixed React Helmet provider integration and duplicate key warnings
-- Customized professional blue/purple color scheme with responsive design
-
 # User Preferences
 
 Preferred communication style: Simple, everyday language.

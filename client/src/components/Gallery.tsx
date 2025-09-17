@@ -1,65 +1,52 @@
+import { useState } from "react";
+
 const galleryImages = [
-  {
-    src: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-    alt: "Modern university campus with students walking between buildings",
-    span: "col-span-2 row-span-2"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-    alt: "Students working with computers in a modern classroom",
-    span: ""
-  },
-  {
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-    alt: "Advanced technology equipment and lab setup",
-    span: ""
-  },
-  {
-    src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-    alt: "Happy graduates in caps and gowns celebrating",
-    span: ""
-  },
-  {
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-    alt: "Professional team meeting with laptops and collaboration",
-    span: ""
-  },
-  {
-    src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300",
-    alt: "Programming classroom with multiple monitors and coding workstations",
-    span: "col-span-2"
-  }
+  { src: "./../src/assets/g1.jpg", alt: "Modern university campus with students walking between buildings", span: "col-span-2 row-span-2" },
+  { src: "./../src/assets/g2.jpg", alt: "Students working with computers in a modern classroom", span: "" },
+  { src: "./../src/assets/g3.jpg", alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: "./../src/assets/g4.jpg", alt: "Happy graduates in caps and gowns celebrating", span: "" },
+  { src: "./../src/assets/g5.jpg", alt: "Professional team meeting with laptops and collaboration", span: "" },
+  { src: "./../src/assets/g11.jpg", alt: "Programming classroom with multiple monitors and coding workstations", span: "col-span-2 row-span-2" },
+  { src: "./../src/assets/g10.jpg", alt: "Students working with computers in a modern classroom", span: "" },
+  { src: "./../src/assets/g7.jpg", alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: "./../src/assets/g9.jpg", alt: "Happy graduates in caps and gowns celebrating", span: "" },
+  { src: "./../src/assets/g8.jpg", alt: "Professional team meeting with laptops and collaboration", span: "" },
+  { src: "./../src/assets/g6.jpg", alt: "Programming classroom with multiple monitors and coding workstations", span: "col-span-2 row-span-2" },
+  { src: "./../src/assets/g14.jpg", alt: "Students working with computers in a modern classroom", span: "" },
+  { src: "./../src/assets/g13.jpg", alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: "./../src/assets/g15.jpg", alt: "Happy graduates in caps and gowns celebrating", span: "" }
 ];
 
 export default function Gallery() {
+  const [showAll, setShowAll] = useState(false);
+  const imagesToShow = showAll ? galleryImages : galleryImages.slice(0, 8);
+
   return (
-    <section id="gallery" className="py-20 bg-background">
+    <section id="gallery" className="py-16 md:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="gallery-title">
-            Campus Gallery
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Gallery
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="gallery-subtitle">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Explore our state-of-the-art facilities and vibrant learning environment
           </p>
         </div>
-        
+
+        {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {galleryImages.map((image, index) => (
+          {imagesToShow.map((image, index) => (
             <div key={index} className={`${image.span} group`}>
-              <img 
+              <img
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-full object-cover rounded-xl hover-lift cursor-pointer transition-all duration-300 group-hover:scale-105"
-                data-testid={`gallery-image-${index}`}
-                onClick={() => {
-                  // Open image in new tab for full view
-                  window.open(image.src, '_blank');
-                }}
+                onClick={() => window.open(image.src, "_blank")}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    window.open(image.src, '_blank');
+                    window.open(image.src, "_blank");
                   }
                 }}
                 tabIndex={0}
@@ -68,6 +55,16 @@ export default function Gallery() {
               />
             </div>
           ))}
+        </div>
+
+        {/* Show More / Show Less Button */}
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors font-medium"
+          >
+            {showAll ? "Show Less" : "Show More"}
+          </button>
         </div>
       </div>
     </section>

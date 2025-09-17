@@ -8,6 +8,7 @@ import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
+import WhatWeOffer from "@/components/WhatWeOffer";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <About />
       <VisionMission />
       <Programs />
+      <WhatWeOffer />
       <Gallery />
       <Contact />
       <Footer />
