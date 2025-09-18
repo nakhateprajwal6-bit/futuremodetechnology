@@ -49,34 +49,36 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-foreground text-background py-12">
+      <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary/10">
+          <div className="grid md:grid-cols-4 gap-12">
+            <div className="col-span-2 md:col-span-1">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
                   <img
                     src={logoImage}
                     alt="Future Mode Technology Logo"
                     className="h-10 w-10 object-contain rounded-lg"
                   />
                 </div>
-                <span className="text-xl font-bold">Future Mode Technology</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Future Mode Technology
+                </span>
               </div>
-              <p className="text-background/80 mb-6 max-w-md text-sm">
+              <p className="text-gray-300 mb-8 max-w-md text-base leading-relaxed">
                 Empowering the next generation of technology leaders through innovative education and cutting-edge curriculum.
               </p>
-              <div className="flex space-x-3">
+              <div className="flex space-x-4">
                 {socialLinks.map((social) => {
                   const IconComponent = social.icon;
                   return (
                     <button
                       key={social.label}
                       onClick={() => window.open(social.href, "_blank")}
-                      className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                      className="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl flex items-center justify-center hover:from-blue-500 hover:to-purple-500 transition-all duration-300 hover:scale-110 hover:shadow-lg"
                       aria-label={social.label}
                     >
-                      <IconComponent className="h-4 w-4" />
+                      <IconComponent className="h-5 w-5" />
                     </button>
                   );
                 })}
@@ -84,13 +86,16 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="text-md font-semibold mb-4 uppercase text-primary">Quick Links</h3>
-              <ul className="space-y-2 text-sm">
+              <h3 className="text-lg font-semibold mb-6 text-blue-400 relative">
+                Quick Links
+                <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"></div>
+              </h3>
+              <ul className="space-y-3 text-base">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
                     <button
                       onClick={() => handleNavClick(link.href)}
-                      className="text-background/80 hover:text-background transition-colors text-left"
+                      className="text-gray-300 hover:text-blue-400 transition-colors text-left hover:translate-x-1 transform duration-200"
                     >
                       {link.label}
                     </button>
@@ -100,13 +105,16 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="text-md font-semibold mb-4 uppercase text-primary">Support</h3>
-              <ul className="space-y-2 text-sm">
+              <h3 className="text-lg font-semibold mb-6 text-purple-400 relative">
+                Support
+                <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400"></div>
+              </h3>
+              <ul className="space-y-3 text-base">
                 {supportLinks.map((link) => (
                   <li key={link.id}>
                     <button
                       onClick={() => openModal(link.id)}
-                      className="text-background/80 hover:text-background transition-colors text-left"
+                      className="text-gray-300 hover:text-purple-400 transition-colors text-left hover:translate-x-1 transform duration-200"
                     >
                       {link.label}
                     </button>
@@ -114,10 +122,41 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-6 text-green-400 relative">
+                Contact Info
+                <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-green-400 to-blue-400"></div>
+              </h3>
+              <div className="space-y-4 text-base">
+                <p className="text-gray-300">
+                  <span className="text-green-400 font-medium">Email:</span><br />
+                  info@futuremodetchnology.com
+                </p>
+                <p className="text-gray-300">
+                  <span className="text-green-400 font-medium">Phone:</span><br />
+                  +91 8308211268
+                </p>
+                <p className="text-gray-300">
+                  <span className="text-green-400 font-medium">Address:</span><br />
+                  Mumbai Thane Bhiwandi<br />
+                  Pin 421302, India
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="border-t border-background/20 mt-8 pt-4 text-center text-xs text-background/60">
-            © 2025 Future Mode Technology. All rights reserved. | Designed with ❤️ for education
+          <div className="border-t border-gray-700/50 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="text-gray-400 text-sm">
+                © 2025 Future Mode Technology. All rights reserved.
+              </p>
+              <p className="text-gray-400 text-sm flex items-center">
+                Crafted with 
+                <span className="mx-1 text-red-400 animate-pulse">❤️</span>
+                for the future of education
+              </p>
+            </div>
           </div>
         </div>
       </footer>
