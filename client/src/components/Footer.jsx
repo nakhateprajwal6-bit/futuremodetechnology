@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Facebook, Twitter, Linkedin, Instagram, X } from "lucide-react";
-import logoImage from "@/assets/logo.png";
+import logoImage from "@/assets/logo-.png";
 import HelpCenter from "@/pages/HelpCenter";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";

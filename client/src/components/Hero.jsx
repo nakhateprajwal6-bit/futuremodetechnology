@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, Play, X } from "lucide-react";
 import { Bot, Brain, SatelliteDish, Move, CircuitBoard } from "lucide-react";
-import heroBackground from "../assets/hero-background.jpg";
+import heroBackground from "../assets/humanoid-banner.png";
 import roboticsImage from "../assets/robotics.jpg";
 import aimlImage from "../assets/aiml.jpg";
 import iotImage from "../assets/iot.jpg";
@@ -73,7 +73,10 @@ export default function Hero() {
   };
 
   const handleScrollClick = () => {
-    window.scrollTo({ top: document.body.scrollHeight / 2, behavior: "smooth" });
+    window.scrollTo({
+      top: document.body.scrollHeight / 2,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -89,9 +92,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-content">
-        <h1 className="hero-title">
-          FutureMode Technology
-        </h1>
+        <h1 className="hero-title">FutureMode Technology</h1>
         <p className="hero-subtitle">
           Empowering minds through innovative educational technology solutions
           that shape tomorrow's leaders
@@ -114,10 +115,7 @@ export default function Hero() {
 
         {/* Hero Buttons */}
         <div className="hero-actions">
-          <button
-            onClick={handleExploreClick}
-            className="hero-button-primary"
-          >
+          <button onClick={handleExploreClick} className="hero-button-primary">
             Explore Programs
           </button>
 
@@ -132,10 +130,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div
-        className="scroll-indicator"
-        onClick={handleScrollClick}
-      >
+      <div className="scroll-indicator" onClick={handleScrollClick}>
         <ChevronDown className="scroll-indicator-icon" />
       </div>
 
@@ -143,10 +138,7 @@ export default function Hero() {
       {selectedProgram && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <button
-              onClick={closeModal}
-              className="modal-close-button"
-            >
+            <button onClick={closeModal} className="modal-close-button">
               <X size={24} />
             </button>
             <img
@@ -154,12 +146,8 @@ export default function Hero() {
               alt={selectedProgram.title}
               className="modal-image"
             />
-            <h3 className="modal-title">
-              {selectedProgram.title}
-            </h3>
-            <p className="modal-description">
-              {selectedProgram.description}
-            </p>
+            <h3 className="modal-title">{selectedProgram.title}</h3>
+            <p className="modal-description">{selectedProgram.description}</p>
             <div className="modal-duration">
               Duration: {selectedProgram.duration}
             </div>

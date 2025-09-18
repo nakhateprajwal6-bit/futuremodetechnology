@@ -3,8 +3,9 @@ export default function HelpCenter() {
     <div>
       <h3 className="text-2xl font-bold mb-4">Help Center</h3>
       <p className="text-gray-700 dark:text-gray-300 mb-4">
-        Welcome to the Future Mode Technology Help Center! We are dedicated to assisting you with any
-        questions, issues, or guidance you may need while navigating our platform.
+        Welcome to the Future Mode Technology Help Center! We are dedicated to
+        assisting you with any questions, issues, or guidance you may need while
+        navigating our platform.
       </p>
 
       <h4 className="text-xl font-semibold mb-2">How can we help you?</h4>
@@ -25,14 +26,30 @@ export default function HelpCenter() {
 
       <h4 className="text-xl font-semibold mb-2">Need further assistance?</h4>
       <p className="text-gray-700 dark:text-gray-300 mb-4">
-        If you cannot find the answer to your question, feel free to contact our support team. We're
-        here to ensure you have a smooth and enjoyable learning experience.
+        If you cannot find the answer to your question, feel free to contact our
+        support team. We're here to ensure you have a smooth and enjoyable
+        learning experience.
       </p>
 
       <div className="space-y-2">
-        <p><strong>Email:</strong> <a href="mailto:support@futuremodetech.com" className="text-primary hover:underline">support@futuremodetech.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+918308211268" className="text-primary hover:underline">+91 8308211268</a></p>
-        <p><strong>Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM IST</p>
+        <p>
+          <strong>Email:</strong>{" "}
+          <a
+            href="mailto:info@futuremodetchnology.com"
+            className="text-primary hover:underline"
+          >
+            info@futuremodetchnology.com
+          </a>
+        </p>
+        <p>
+          <strong>Phone:</strong>{" "}
+          <a href="tel:+918308211268" className="text-primary hover:underline">
+            +91 8308211268
+          </a>
+        </p>
+        <p>
+          <strong>Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM IST
+        </p>
       </div>
     </div>
   );
