@@ -1,7 +1,7 @@
 import { createServer } from "http";
 import type { Express } from "express";
 import { storage } from "./storage.js";
-import { insertContactSchema, insertChatMessageSchema } from "../shared/schema.js";
+import { insertContactSchema, insertChatMessageSchema } from "../shared/schema.ts";
 import { ZodError } from "zod";
 
 export async function registerRoutes(app: Express) {

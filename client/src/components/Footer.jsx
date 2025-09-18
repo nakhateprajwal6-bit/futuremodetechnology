@@ -1,53 +1,10 @@
 import { useState } from "react";
 import { Facebook, Twitter, Linkedin, Instagram, X } from "lucide-react";
-import logoImage from "../assets/logo.png";
-import "./Footer.css";
-
-// Simple modal content components
-const HelpCenter = () => (
-  <div>
-    <h2 style={{marginBottom: '1rem', fontSize: '1.5rem', fontWeight: '700'}}>Help Center</h2>
-    <p>Welcome to Future Mode Technology Help Center. Here you can find answers to common questions and get support for our programs.</p>
-    <h3 style={{marginTop: '1.5rem', marginBottom: '0.5rem'}}>Common Questions:</h3>
-    <ul style={{paddingLeft: '1.5rem'}}>
-      <li>How do I enroll in a program?</li>
-      <li>What are the prerequisites?</li>
-      <li>How can I contact support?</li>
-    </ul>
-  </div>
-);
-
-const PrivacyPolicy = () => (
-  <div>
-    <h2 style={{marginBottom: '1rem', fontSize: '1.5rem', fontWeight: '700'}}>Privacy Policy</h2>
-    <p>Your privacy is important to us. This policy explains how we collect, use, and protect your information.</p>
-    <h3 style={{marginTop: '1.5rem', marginBottom: '0.5rem'}}>Information We Collect:</h3>
-    <p>We collect information you provide when enrolling in programs, contacting us, or using our services.</p>
-  </div>
-);
-
-const TermsOfService = () => (
-  <div>
-    <h2 style={{marginBottom: '1rem', fontSize: '1.5rem', fontWeight: '700'}}>Terms of Service</h2>
-    <p>By using our services, you agree to these terms and conditions.</p>
-    <h3 style={{marginTop: '1.5rem', marginBottom: '0.5rem'}}>Service Usage:</h3>
-    <p>Our educational services are provided for learning and skill development purposes.</p>
-  </div>
-);
-
-const FAQ = () => (
-  <div>
-    <h2 style={{marginBottom: '1rem', fontSize: '1.5rem', fontWeight: '700'}}>Frequently Asked Questions</h2>
-    <div style={{marginBottom: '1rem'}}>
-      <h3 style={{marginBottom: '0.5rem'}}>Q: How long are the programs?</h3>
-      <p>A: Programs vary from 4 months to 18 months depending on the subject.</p>
-    </div>
-    <div style={{marginBottom: '1rem'}}>
-      <h3 style={{marginBottom: '0.5rem'}}>Q: Do you offer online courses?</h3>
-      <p>A: Yes, we offer both in-person and online learning options.</p>
-    </div>
-  </div>
-);
+import logoImage from "@/assets/logo.png";
+import HelpCenter from "@/pages/HelpCenter";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
+import FAQ from "@/pages/FAQ";
 
 export default function Footer() {
   const [modalContent, setModalContent] = useState(null);
@@ -90,99 +47,94 @@ export default function Footer() {
     setModalContent(null);
   };
 
-  const renderModalContent = () => {
-    switch(modalContent) {
-      case "help": return <HelpCenter />;
-      case "privacy": return <PrivacyPolicy />;
-      case "terms": return <TermsOfService />;
-      case "faq": return <FAQ />;
-      default: return null;
-    }
-  };
-
   return (
     <>
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-content">
-            <div className="footer-brand">
-              <div className="brand-header">
-                <div className="brand-logo-container">
+      <footer className="bg-foreground text-background py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="col-span-2">
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary/10">
                   <img
                     src={logoImage}
                     alt="Future Mode Technology Logo"
-                    className="brand-logo"
+                    className="h-10 w-10 object-contain rounded-lg"
                   />
                 </div>
-                <span className="brand-name">Future Mode Technology</span>
+                <span className="text-xl font-bold">Future Mode Technology</span>
               </div>
-              <p className="brand-description">
+              <p className="text-background/80 mb-6 max-w-md text-sm">
                 Empowering the next generation of technology leaders through innovative education and cutting-edge curriculum.
               </p>
-              <div className="social-links">
+              <div className="flex space-x-3">
                 {socialLinks.map((social) => {
                   const IconComponent = social.icon;
                   return (
                     <button
                       key={social.label}
                       onClick={() => window.open(social.href, "_blank")}
-                      className="social-button"
+                      className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
                       aria-label={social.label}
                     >
-                      <IconComponent />
+                      <IconComponent className="h-4 w-4" />
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            <div className="footer-section">
-              <h3 className="footer-section-title">Quick Links</h3>
-              <div className="footer-links">
+            <div>
+              <h3 className="text-md font-semibold mb-4 uppercase text-primary">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
                 {quickLinks.map((link) => (
-                  <button
-                    key={link.href}
-                    onClick={() => handleNavClick(link.href)}
-                    className="footer-link"
-                  >
-                    {link.label}
-                  </button>
+                  <li key={link.href}>
+                    <button
+                      onClick={() => handleNavClick(link.href)}
+                      className="text-background/80 hover:text-background transition-colors text-left"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            <div className="footer-section">
-              <h3 className="footer-section-title">Support</h3>
-              <div className="footer-links">
+            <div>
+              <h3 className="text-md font-semibold mb-4 uppercase text-primary">Support</h3>
+              <ul className="space-y-2 text-sm">
                 {supportLinks.map((link) => (
-                  <button
-                    key={link.id}
-                    onClick={() => openModal(link.id)}
-                    className="footer-link"
-                  >
-                    {link.label}
-                  </button>
+                  <li key={link.id}>
+                    <button
+                      onClick={() => openModal(link.id)}
+                      className="text-background/80 hover:text-background transition-colors text-left"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
 
-          <div className="footer-bottom">
+          <div className="border-t border-background/20 mt-8 pt-4 text-center text-xs text-background/60">
             © 2025 Future Mode Technology. All rights reserved. | Designed with ❤️ for education
           </div>
         </div>
       </footer>
 
       {modalContent && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 px-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-xl w-full h-[70vh] overflow-y-auto relative p-4 sm:p-6">
             <button
               onClick={closeModal}
-              className="modal-close-button"
+              className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
             >
               <X size={24} />
             </button>
-            {renderModalContent()}
+            {modalContent === "help" && <HelpCenter />}
+            {modalContent === "privacy" && <PrivacyPolicy />}
+            {modalContent === "terms" && <TermsOfService />}
+            {modalContent === "faq" && <FAQ />}
           </div>
         </div>
       )}

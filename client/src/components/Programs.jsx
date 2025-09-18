@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { Code, Brain, Cloud, BarChart3, Smartphone } from "lucide-react"; 
 import { Cpu, CircuitBoard, Move, Camera, Bot, SatelliteDish } from "lucide-react";
-import webDevImage from "../assets/service-web.jpg";
-import roboticsImage from "../assets/service-robotics.jpg";
-import softwareImage from "../assets/service-software.jpg";
-import iotImage from "../assets/iot.jpg";
-import aiImage from "../assets/aiml.jpg";
-import mobileImage from "../assets/service-mobile.jpg";
-import dataImage from "../assets/service-datascience.jpg";
-import "./Programs.css";
+import { Button } from "@/components/ui/button";
+import p1Image from "../assets/p1.jpg";
+import p2Image from "../assets/p2.jpg";
+import p3Image from "../assets/p3.jpg";
+import p4Image from "../assets/p4.webp";
+import p5Image from "../assets/p5.webp";
+import p6Image from "../assets/p6.png";
+import p7Image from "../assets/p7.jpg";
+import p8Image from "../assets/p8.webp";
+import p9Image from "../assets/p9.jpg";
+import p10Image from "../assets/p10.jpg";
+import p11Image from "../assets/p11.webp";
+import p12Image from "../assets/p12.png";
 
 const allPrograms = [
   {
@@ -18,7 +23,7 @@ const allPrograms = [
       "Build dynamic and responsive websites using HTML, CSS, JavaScript, and popular frameworks like React and Next.js.",
     duration: "9 Months",
     color: "primary",
-    image: webDevImage,
+    image: p1Image,
   },
   {
     icon: Bot,
@@ -27,7 +32,7 @@ const allPrograms = [
       "Design and build intelligent robotic systems integrating mechanical, electrical, and software components.",
     duration: "18 Months",
     color: "primary",
-    image: roboticsImage,
+    image: p2Image,
   },
   {
     icon: Code,
@@ -36,7 +41,7 @@ const allPrograms = [
       "Master modern programming languages and frameworks with hands-on projects and industry mentorship.",
     duration: "12 Months",
     color: "primary",
-    image: softwareImage
+    image: p3Image
   },
   {
     icon: SatelliteDish,
@@ -45,7 +50,7 @@ const allPrograms = [
       "Connect and control robots remotely via IoT technologies and wireless communication systems.",
     duration: "11 Months",
     color: "secondary",
-    image: iotImage
+    image: p4Image
   },
   {
     icon: Brain,
@@ -54,16 +59,25 @@ const allPrograms = [
       "Explore machine learning, deep learning, and AI applications with cutting-edge tools and techniques.",
     duration: "18 Months",
     color: "secondary",
-    image: aiImage
+    image: p5Image
   },
   {
-    icon: Smartphone,
-    title: "Mobile Development",
+    icon: CircuitBoard,
+    title: "Embedded Systems",
     description:
-      "Build native and cross-platform mobile applications for iOS and Android using modern frameworks.",
-    duration: "11 Months",
+      "Develop real-time embedded hardware and firmware for robotic applications using microcontrollers and sensors.",
+    duration: "12 Months",
     color: "secondary",
-    image: mobileImage
+    image: p6Image
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Computing",
+    description:
+      "Learn cloud architecture, deployment, and management across major platforms like AWS and Azure.",
+    duration: "10 Months",
+    color: "primary",
+    image: p7Image
   },
   {
     icon: BarChart3,
@@ -72,7 +86,43 @@ const allPrograms = [
       "Analyze complex data sets and extract insights using statistical methods and visualization tools.",
     duration: "16 Months",
     color: "primary",
-    image: dataImage
+    image: p8Image
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Development",
+    description:
+      "Build native and cross-platform mobile applications for iOS and Android using modern frameworks.",
+    duration: "11 Months",
+    color: "secondary",
+    image: p9Image
+  },
+  {
+    icon: Move,
+    title: "Mechatronics & Automation",
+    description:
+      "Master automation technologies combining robotics, mechanics, and electronics for industrial solutions.",
+    duration: "14 Months",
+    color: "primary",
+    image: p10Image
+  },
+  {
+    icon: Cpu,
+    title: "Control Systems",
+    description:
+      "Learn PID control, motion planning, and feedback systems to optimize robotic performance.",
+    duration: "10 Months",
+    color: "secondary",
+    image: p11Image
+  },
+  {
+    icon: Camera,
+    title: "Computer Vision",
+    description:
+      "Enable robots to perceive and interact with their environment using vision and image processing techniques.",
+    duration: "12 Months",
+    color: "primary",
+    image: p12Image
   }
 ];
 
@@ -82,54 +132,48 @@ export default function Programs() {
 
   const displayedPrograms = showAll ? allPrograms : allPrograms.slice(0, 6);
 
-  const handleProgramClick = (program) => {
-    setSelectedProgram(program);
-  };
-
-  const closeModal = () => {
-    setSelectedProgram(null);
-  };
-
   return (
-    <section id="programs" className="programs-section">
-      <div className="programs-container">
-        <div className="programs-header">
-          <h2 className="programs-title" data-testid="programs-title">
+    <section id="programs" className="py-20 bg-muted/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="programs-title">
             Our Programs
           </h2>
-          <p className="programs-subtitle" data-testid="programs-subtitle">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="programs-subtitle">
             Comprehensive technology education programs designed to meet industry demands.
           </p>
         </div>
 
-        <div className="programs-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedPrograms.map((program, index) => {
             const IconComponent = program.icon;
+            const bgColorClass = program.color === "primary" ? "bg-primary/10 dark:bg-primary/20" : "bg-secondary/10 dark:bg-secondary/20";
+            const textColorClass = program.color === "primary" ? "text-primary" : "text-secondary";
             return (
               <div 
                 key={program.title}
-                className="program-card"
-                onClick={() => handleProgramClick(program)}
+                className="bg-card rounded-xl p-6 shadow-lg hover:shadow-xl border border-border transition-all duration-300 group hover:scale-105 cursor-pointer"
+                onClick={() => setSelectedProgram(program)}
                 data-testid={`program-card-${index}`}
                 role="button"
                 aria-labelledby={`program-title-${index}`}
               >
-                <div className={`program-icon-container ${program.color}`}>
-                  <IconComponent className={`program-icon ${program.color}`} />
+                <div className={`w-16 h-16 ${bgColorClass} rounded-lg flex items-center justify-center mb-6`}>
+                  <IconComponent className={`${textColorClass} text-2xl`} />
                 </div>
-                <h3 className="program-title" data-testid={`program-title-${index}`}>
+                <h3 className="text-xl font-bold text-card-foreground mb-3" data-testid={`program-title-${index}`}>
                   {program.title}
                 </h3>
-                <p className="program-description" data-testid={`program-description-${index}`}>
+                <p className="text-muted-foreground mb-4 text-sm" data-testid={`program-description-${index}`}>
                   {program.description}
                 </p>
-                <div className="program-footer">
-                  <span className="program-duration" data-testid={`program-duration-${index}`}>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground" data-testid={`program-duration-${index}`}>
                     {program.duration}
                   </span>
-                  <button className="program-learn-more">
+                  <Button variant="link" className="text-primary font-semibold p-0 h-auto hover:underline">
                     Learn More
-                  </button>
+                  </Button>
                 </div>
               </div>
             );
@@ -137,23 +181,24 @@ export default function Programs() {
         </div>
 
         {/* Show More / Show Less Button */}
-        <div className="show-more-container">
-          <button
+        <div className="text-center mt-8">
+          <Button
             onClick={() => setShowAll(!showAll)}
-            className="show-more-button"
+            variant="outline"
+            className="px-6 py-3 text-lg"
           >
             {showAll ? "Show Less" : "Show More"}
-          </button>
+          </Button>
         </div>
       </div>
 
       {/* Modal Popup */}
       {selectedProgram && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-lg w-full relative p-6 mx-4">
             <button
-              onClick={closeModal}
-              className="modal-close-button"
+              onClick={() => setSelectedProgram(null)}
+              className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
               aria-label="Close modal"
             >
               ✕
@@ -161,20 +206,20 @@ export default function Programs() {
             <img
               src={selectedProgram.image}
               alt={selectedProgram.title}
-              className="modal-image"
+              className="w-full h-64 object-cover rounded-md mb-4"
             />
-            <h3 className="modal-title">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
               {selectedProgram.title}
             </h3>
-            <p className="modal-description">
+            <p className="text-gray-600 dark:text-gray-300 mb-4">
               {selectedProgram.description}
             </p>
-            <div className="modal-duration">
+            <div className="text-sm text-muted-foreground mb-2">
               Duration: {selectedProgram.duration}
             </div>
-            <button onClick={closeModal} className="modal-close-btn">
+            <Button onClick={() => setSelectedProgram(null)} className="w-full mt-4">
               Close
-            </button>
+            </Button>
           </div>
         </div>
       )}

@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import type { User, InsertUser, Contact, InsertContact, ChatMessage, InsertChatMessage } from "../shared/schema.js";
+import type { User, InsertUser, Contact, InsertContact, ChatMessage, InsertChatMessage } from "../shared/schema.ts";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
