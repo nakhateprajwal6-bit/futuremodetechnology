@@ -9,7 +9,6 @@ app.use(express.urlencoded({ extended: false }));
 // ===== Logging Middleware =====
 app.use((req, res, next) => {
   const start = Date.now();
-  const path = req.path;
   let capturedJsonResponse: any = undefined;
 
   const originalResJson = res.json;
@@ -20,16 +19,10 @@ app.use((req, res, next) => {
 
   res.on("finish", () => {
     const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      if (logLine.length > 80) {
-        logLine = logLine.slice(0, 79) + "…";
-      }
-
+    if (req.path.startsWith("/api")) {
+      let logLine = `${req.method} ${req.path} ${res.statusCode} in ${duration}ms`;
+      if (capturedJsonResponse) logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
+      if (logLine.length > 80) logLine = logLine.slice(0, 79) + "…";
       log(logLine);
     }
   });
@@ -44,7 +37,6 @@ app.use((req, res, next) => {
   app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
-
     res.status(status).json({ message });
     throw err;
   });
@@ -58,16 +50,7 @@ app.use((req, res, next) => {
 
   // ===== Server Config =====
   const port = parseInt(process.env.PORT || "5000", 10);
-  const host = process.env.HOST || "0.0.0.0"; // ✅ Replit compatible
+  const host = process.env.HOST || "0.0.0.0";
 
-  server.listen(
-    {
-      port,
-      host,
-      // ⚠️ removed reusePort because it's not supported on Windows
-    },
-    () => {
-      log(`🚀 Server running on http://${host}:${port}`);
-    }
-  );
+  server.listen({ port, host }, () => log(`🚀 Server running on http://${host}:${port}`));
 })();
