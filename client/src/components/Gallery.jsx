@@ -1,28 +1,27 @@
+
 import { useState } from "react";
-import gallery1 from "../assets/gallery-1.jpg";
-import gallery2 from "../assets/gallery-2.jpg";
-import gallery3 from "../assets/gallery-3.jpg";
-import gallery4 from "../assets/gallery-4.jpg";
-import gallery5 from "../assets/gallery-5.jpg";
-import gallery6 from "../assets/gallery-6.jpg";
-import gallery7 from "../assets/gallery-7.jpg";
-import gallery8 from "../assets/gallery-8.jpg";
 import "./Gallery.css";
 
 const galleryImages = [
-  { src: gallery1, alt: "Students learning with technology in modern classroom", span: "span-large" },
-  { src: gallery2, alt: "Technology students collaborating on projects", span: "" },
-  { src: gallery3, alt: "University computer lab with advanced equipment", span: "" },
-  { src: gallery4, alt: "Students engaged in technology learning", span: "" },
-  { src: gallery5, alt: "Educational technology workshop session", span: "" },
-  { src: gallery6, alt: "Computer science classroom environment", span: "span-large" },
-  { src: gallery7, alt: "Students working with modern technology", span: "" },
-  { src: gallery8, alt: "Technology education in progress", span: "" }
+  { src: "./src/assets/g1.jpg", alt: "Modern university campus with students walking between buildings", span: "span-large" },
+  { src: "./src/assets/g2.jpg", alt: "Students working with computers in a modern classroom", span: "" },
+  { src: "./src/assets/g3.jpg", alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: "./src/assets/g4.jpg", alt: "Happy graduates in caps and gowns celebrating", span: "" },
+  { src: "./src/assets/g5.jpg", alt: "Professional team meeting with laptops and collaboration", span: "" },
+  { src: "./src/assets/g11.jpg", alt: "Programming classroom with multiple monitors and coding workstations", span: "span-large" },
+  { src: "./src/assets/g10.jpg", alt: "Students working with computers in a modern classroom", span: "" },
+  { src: "./src/assets/g7.jpg", alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: "./src/assets/g9.jpg", alt: "Happy graduates in caps and gowns celebrating", span: "" },
+  { src: "./src/assets/g8.jpg", alt: "Professional team meeting with laptops and collaboration", span: "" },
+  { src: "./src/assets/g6.jpg", alt: "Programming classroom with multiple monitors and coding workstations", span: "span-large" },
+  { src: "./src/assets/g14.jpg", alt: "Students working with computers in a modern classroom", span: "" },
+  { src: "./src/assets/g13.jpg", alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: "./src/assets/g15.jpg", alt: "Happy graduates in caps and gowns celebrating", span: "" }
 ];
 
 export default function Gallery() {
   const [showAll, setShowAll] = useState(false);
-  const imagesToShow = showAll ? galleryImages : galleryImages.slice(0, 6);
+  const imagesToShow = showAll ? galleryImages : galleryImages.slice(0, 8);
 
   const handleImageClick = (imageSrc) => {
     window.open(imageSrc, "_blank");
