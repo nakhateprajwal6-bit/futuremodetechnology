@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Facebook, Twitter, Linkedin, Instagram, X } from "lucide-react";
+import { X } from "lucide-react";
 import logoImage from "./../assets/logo-.png";
 import HelpCenter from "./../pages/HelpCenter";
 import PrivacyPolicy from "./../pages/PrivacyPolicy";
@@ -25,10 +25,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/futuremodetech", label: "Facebook", color: "#1877f2" },
-    { icon: Twitter, href: "https://twitter.com/futuremodetech", label: "Twitter", color: "#1da1f2" },
-    { icon: Linkedin, href: "https://linkedin.com/company/futuremodetech", label: "LinkedIn", color: "#0077b5" },
-    { icon: Instagram, href: "https://instagram.com/futuremodetech", label: "Instagram", color: "#e4405f" },
+    { symbol: "f", href: "https://facebook.com/futuremodetech", label: "Facebook", color: "#1877f2" },
+    { symbol: "𝕏", href: "https://twitter.com/futuremodetech", label: "X (Twitter)", color: "#000000" },
+    { symbol: "in", href: "https://linkedin.com/company/futuremodetech", label: "LinkedIn", color: "#0077b5" },
+    { symbol: "📷", href: "https://instagram.com/futuremodetech", label: "Instagram", color: "#e4405f" },
   ];
 
   const handleNavClick = (href) => {
@@ -60,7 +60,6 @@ export default function Footer() {
               <div className="social-links-title">Follow Us</div>
               <div className="social-links">
                 {socialLinks.map((social) => {
-                  const IconComponent = social.icon;
                   return (
                     <button
                       key={social.label}
@@ -69,7 +68,7 @@ export default function Footer() {
                       aria-label={social.label}
                       style={{ '--social-color': social.color }}
                     >
-                      <IconComponent size={18} />
+                      <span className="social-symbol">{social.symbol}</span>
                     </button>
                   );
                 })}
