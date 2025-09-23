@@ -76,33 +76,48 @@
 }
 
 .brand-description {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.social-links-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Social Links */
 .social-links {
   display: flex;
   gap: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .social-button {
-  width: 2rem;
-  height: 2rem;
-  background: rgba(37, 99, 235, 0.2);
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .social-button:hover {
-  background-color: var(--primary);
+  background-color: var(--social-color, var(--primary));
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: var(--social-color, var(--primary));
 }
 
 /* Footer Sections */

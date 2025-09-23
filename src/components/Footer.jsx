@@ -25,10 +25,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/futuremodetech", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/futuremodetech", label: "Twitter" },
-    { icon: Linkedin, href: "https://linkedin.com/company/futuremodetech", label: "LinkedIn" },
-    { icon: Instagram, href: "https://instagram.com/futuremodetech", label: "Instagram" },
+    { icon: Facebook, href: "https://facebook.com/futuremodetech", label: "Facebook", color: "#1877f2" },
+    { icon: Twitter, href: "https://twitter.com/futuremodetech", label: "Twitter", color: "#1da1f2" },
+    { icon: Linkedin, href: "https://linkedin.com/company/futuremodetech", label: "LinkedIn", color: "#0077b5" },
+    { icon: Instagram, href: "https://instagram.com/futuremodetech", label: "Instagram", color: "#e4405f" },
   ];
 
   const handleNavClick = (href) => {
@@ -57,6 +57,7 @@ export default function Footer() {
               <p className="brand-description">
                 Empowering the next generation of technology leaders through innovative education and cutting-edge curriculum.
               </p>
+              <div className="social-links-title">Follow Us</div>
               <div className="social-links">
                 {socialLinks.map((social) => {
                   const IconComponent = social.icon;
@@ -66,8 +67,9 @@ export default function Footer() {
                       onClick={() => window.open(social.href, "_blank")}
                       className="social-button"
                       aria-label={social.label}
+                      style={{ '--social-color': social.color }}
                     >
-                      <IconComponent />
+                      <IconComponent size={18} />
                     </button>
                   );
                 })}
