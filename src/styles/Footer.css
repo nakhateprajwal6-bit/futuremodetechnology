@@ -189,14 +189,32 @@
   color: #1f2937;
 }
 
-/* CSS Variables */
-:root {
-  --background: #ffffff;
-  --foreground: #0f1419;
-  --primary: #2563eb;
+/* Removed global variable overrides - kept in src/index.css only */
+
+/* Contact Info Styles */
+.contact-info {
+  color: #d1d5db;
 }
 
-.dark {
-  --background: #0f1419;
-  --foreground: #ffffff;
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.contact-highlight {
+  font-weight: 500;
+  color: #34d399;
+}
+
+.footer-heart {
+  color: #f87171;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }

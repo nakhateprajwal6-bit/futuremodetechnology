@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Remove Tailwind - using component-based CSS instead */
 
 
 /* CSS Variables */
@@ -76,10 +74,26 @@
     color: var(--foreground);
     line-height: 1.6;
     margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    padding-top: 64px; /* Account for fixed navbar */
+  }
+
+  /* Prevent horizontal scrolling - targeted approach */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Ensure media elements are responsive */
+  img, video, iframe, canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent anchor links from hiding under fixed navbar */
+  section, [id] {
+    scroll-margin-top: 64px;
   }
 
   h1 { font-size: 3.2em; line-height: 1.1; }
@@ -109,21 +123,21 @@
   .bg-background { background-color: var(--background); }
   .text-foreground { color: var(--foreground); }
 
-  .gradient-bg { background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%); }
+  .gradient-bg { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); }
 
   .glass-effect {
-    background: hsl(var(--background)/0.1);
+    background: color-mix(in srgb, var(--background) 10%, transparent);
     backdrop-filter: blur(10px);
-    border: 1px solid hsl(var(--border)/0.2);
+    border: 1px solid color-mix(in srgb, var(--border) 20%, transparent);
   }
-  .dark .glass-effect { background: hsl(var(--foreground)/0.05); border: 1px solid hsl(var(--border)/0.3); }
+  .dark .glass-effect { background: color-mix(in srgb, var(--foreground) 5%, transparent); border: 1px solid color-mix(in srgb, var(--border) 30%, transparent); }
 
   .hover-lift { transition: all 0.3s ease; }
-  .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px hsl(var(--foreground)/0.1); }
-  .dark .hover-lift:hover { box-shadow: 0 20px 40px hsl(var(--background)/0.3); }
+  .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px color-mix(in srgb, var(--foreground) 10%, transparent); }
+  .dark .hover-lift:hover { box-shadow: 0 20px 40px color-mix(in srgb, var(--background) 30%, transparent); }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -134,22 +148,22 @@
   .animate-float { animation: float 3s ease-in-out infinite; }
 
   .theme-section {
-    background: hsl(var(--muted)/0.3);
-    border: 1px solid hsl(var(--border)/0.5);
+    background: color-mix(in srgb, var(--muted) 30%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
   }
-  .dark .theme-section { background: hsl(var(--card)/0.3); border: 1px solid hsl(var(--border)/0.3); }
+  .dark .theme-section { background: color-mix(in srgb, var(--card) 30%, transparent); border: 1px solid color-mix(in srgb, var(--border) 30%, transparent); }
 
-  .theme-card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); color: hsl(var(--card-foreground)); }
+  .theme-card { background: var(--card); border: 1px solid var(--border); color: var(--card-foreground); }
   .theme-button-hover { transition: all 0.2s ease; }
-  .theme-button-hover:hover { background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); }
-  .dark .theme-button-hover:hover { background: hsl(var(--accent)/0.8); }
+  .theme-button-hover:hover { background: var(--accent); color: var(--accent-foreground); }
+  .dark .theme-button-hover:hover { background: color-mix(in srgb, var(--accent) 80%, transparent); }
 
-  .theme-text-primary { color: hsl(var(--primary)); }
-  .theme-text-secondary { color: hsl(var(--secondary)); }
-  .dark .theme-text-primary { color: hsl(var(--primary)/0.9); }
-  .dark .theme-text-secondary { color: hsl(var(--secondary)/0.9); }
+  .theme-text-primary { color: var(--primary); }
+  .theme-text-secondary { color: var(--secondary); }
+  .dark .theme-text-primary { color: color-mix(in srgb, var(--primary) 90%, transparent); }
+  .dark .theme-text-secondary { color: color-mix(in srgb, var(--secondary) 90%, transparent); }
 
-  .focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
+  .focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
   img { max-width: 100%; height: auto; }
   .loading { opacity: 0.7; pointer-events: none; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }

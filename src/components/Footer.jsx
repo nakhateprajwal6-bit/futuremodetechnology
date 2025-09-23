@@ -83,17 +83,17 @@ export default function Footer() {
             {/* Contact Info */}
             <div className="footer-section">
               <h3 className="footer-section-title">Contact Info</h3>
-              <div className="text-gray-300 space-y-2">
+              <div className="contact-info">
                 <p>
-                  <span className="font-medium text-green-400">Email:</span><br />
+                  <span className="contact-highlight">Email:</span><br />
                   info@futuremodetchnology.com
                 </p>
                 <p>
-                  <span className="font-medium text-green-400">Phone:</span><br />
+                  <span className="contact-highlight">Phone:</span><br />
                   +91 8308211268
                 </p>
                 <p>
-                  <span className="font-medium text-green-400">Address:</span><br />
+                  <span className="contact-highlight">Address:</span><br />
                   Mumbai Thane Bhiwandi<br />
                   Pin 421302, India
                 </p>
@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom">
-            © 2025 Future Mode Technology. Crafted with <span className="text-red-400 animate-pulse">❤️</span> for the future of education.
+            © 2025 Future Mode Technology. Crafted with <span className="footer-heart">❤️</span> for the future of education.
           </div>
         </div>
       </footer>
