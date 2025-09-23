@@ -1,0 +1,225 @@
+/* Vision Mission Component Styles */
+
+.vision-mission-section {
+  position: relative;
+  padding: 5rem 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+  overflow: hidden;
+}
+
+.vision-mission-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
+}
+
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+}
+
+.pattern-light,
+.pattern-dark {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.pattern-light {
+  top: 10%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.pattern-dark {
+  bottom: 10%;
+  right: 10%;
+  background: rgba(124, 58, 237, 0.1);
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+.vision-mission-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .vision-mission-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vision-mission-container {
+    padding: 0 2rem;
+  }
+}
+
+.vision-mission-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.vision-mission-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 768px) {
+  .vision-mission-title {
+    font-size: 3rem;
+  }
+}
+
+.vision-mission-subtitle {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.vision-mission-grid {
+  display: grid;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .vision-mission-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.vision-mission-card {
+  position: relative;
+  background: var(--card);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.vision-mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-glow.vision {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+}
+
+.card-glow.mission {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+}
+
+.vision-mission-card:hover .card-glow {
+  opacity: 1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.card-icon-container {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.vision-icon-container {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.2) 100%);
+}
+
+.mission-icon-container {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0.2) 100%);
+}
+
+.card-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary);
+}
+
+.mission-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--secondary);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.card-description {
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* CSS Variables for theme support */
+:root {
+  --background: #ffffff;
+  --foreground: #0f1419;
+  --muted-foreground: #6b7280;
+  --primary: #2563eb;
+  --secondary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --card: #ffffff;
+}
+
+.dark {
+  --background: #0f1419;
+  --foreground: #ffffff;
+  --muted-foreground: #9ca3af;
+  --primary: #3b82f6;
+  --secondary: #8b5cf6;
+  --card: #1f2937;
+}
