@@ -25,10 +25,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { symbol: "f", href: "https://facebook.com/futuremodetech", label: "Facebook", color: "#1877f2" },
-    { symbol: "𝕏", href: "https://twitter.com/futuremodetech", label: "X (Twitter)", color: "#000000" },
-    { symbol: "in", href: "https://linkedin.com/company/futuremodetech", label: "LinkedIn", color: "#0077b5" },
-    { symbol: "📷", href: "https://instagram.com/futuremodetech", label: "Instagram", color: "#e4405f" },
+    { icon: "fab fa-facebook-f", href: "https://facebook.com/futuremodetech", label: "Facebook", color: "#1877f2" },
+    { icon: "fab fa-x-twitter", href: "https://twitter.com/futuremodetech", label: "X (Twitter)", color: "#000000" },
+    { icon: "fab fa-linkedin-in", href: "https://linkedin.com/company/futuremodetech", label: "LinkedIn", color: "#0077b5" },
+    { icon: "fab fa-instagram", href: "https://instagram.com/futuremodetech", label: "Instagram", color: "#e4405f" },
   ];
 
   const handleNavClick = (href) => {
@@ -68,7 +68,7 @@ export default function Footer() {
                       aria-label={social.label}
                       style={{ '--social-color': social.color }}
                     >
-                      <span className="social-symbol">{social.symbol}</span>
+                      <i className={social.icon}></i>
                     </button>
                   );
                 })}
