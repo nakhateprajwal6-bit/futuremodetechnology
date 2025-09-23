@@ -1,33 +1,42 @@
 # FutureMode Technology - Project Setup
 
 ## Overview
-This is a React frontend application for FutureMode Technology, showcasing their robotics, AI/ML, IoT, and technology services. The application is built with React + Vite and configured to run in the Replit environment.
-
-## Recent Changes
-- 2025-09-23: Initial project import and setup
-  - Installed missing dependencies (wouter, @tanstack/react-query, react-helmet-async)
-  - Configured Vite to work in Replit (host: 0.0.0.0, port: 5000)
-  - Set up Frontend Development Server workflow
-  - Configured deployment settings for autoscale deployment
+This is a React + Vite frontend application for FutureMode Technology, successfully imported from GitHub and configured for the Replit environment.
 
 ## Project Architecture
-- **Frontend Framework**: React 18 with Vite
-- **Routing**: Wouter (though currently using single-page layout)
-- **Styling**: CSS modules with component-specific stylesheets
-- **State Management**: @tanstack/react-query (available but not actively used yet)
-- **Icons**: Lucide React
-- **Build Tool**: Vite 7.1.6
+- **Frontend**: React 18 + Vite 7.1.6
+- **Routing**: Single-page application (Router.jsx exists but unused)
+- **Styling**: CSS modules with dark/light theme support
+- **UI Components**: Custom components with Lucide React icons
+- **Build System**: Vite with React plugin
 
-## Current Status
-- ✅ Development server running on port 5000
-- ✅ All dependencies installed
-- ✅ Replit environment configuration complete
-- ✅ Deployment settings configured
-- 📱 Single-page application with sections: Hero, About, Vision, Programs, Gallery, Contact
+## Replit Configuration
+- **Development Server**: Configured to run on 0.0.0.0:5000 with allowedHosts: "all"
+- **Workflow**: "Frontend Development Server" running `npm run dev`
+- **Deployment**: Autoscale deployment with `npm run build` and `npm run start`
 
-## Architecture Details
-- Single-page application layout in App.jsx
-- Component-based structure in src/components/
-- Individual CSS files for styling
-- Asset images stored in src/assets/
-- Router.jsx exists but not currently used (contains setup for wouter routing)
+## Dependencies Installed
+- Core: React 18, React DOM
+- Routing: wouter, @tanstack/react-query, react-helmet-async
+- UI: lucide-react icons, @radix-ui/react-slot, class-variance-authority
+- Dev Tools: Vite, ESLint, TypeScript types
+
+## Recent Changes (2025-09-23)
+- Added missing dependencies for routing and UI components
+- Configured Vite server with host: "0.0.0.0", port: 5000, allowedHosts: "all"
+- Set up development workflow for port 5000
+- Added production start script: "vite preview --host 0.0.0.0 --port ${PORT:-5000}"
+- Configured autoscale deployment with build and start commands
+- Fixed Replit host proxy issues
+
+## Application Structure
+- Single-page layout with multiple sections: Navbar, Hero, About, Vision, Programs, Gallery, Contact, Footer
+- Theme switching functionality (dark/light mode)
+- Smooth scrolling navigation
+- Responsive design with CSS modules
+
+## Status
+✅ Successfully imported and running in Replit environment
+✅ Development server working on port 5000
+✅ Deployment configuration complete
+✅ All dependencies resolved
