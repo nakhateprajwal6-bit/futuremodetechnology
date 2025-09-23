@@ -61,7 +61,10 @@ export default function Hero() {
   const closeModal = () => setSelectedProgram(null);
 
   const handleExploreClick = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    const programsSection = document.querySelector("#programs");
+    if (programsSection) {
+      programsSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleWatchDemoClick = () => {
