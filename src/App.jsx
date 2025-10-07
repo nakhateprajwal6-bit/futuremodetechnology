@@ -7,7 +7,6 @@ import VisionMission from "./components/VisionMission";
 import Programs from "./components/Programs";
 import WhatWeOffer from "./components/WhatWeOffer";
 import Chatbot from "./components/Chatbot";
-import Gallery from "./components/Gallery";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
@@ -21,7 +20,6 @@ const App = () => {
       <WhatWeOffer />
       <Programs />
       <Chatbot />
-      <Gallery />
       <Contact />
       <Footer />
     </div>
