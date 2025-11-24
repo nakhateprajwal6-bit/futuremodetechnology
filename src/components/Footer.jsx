@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
-=======
-import { useState } from "react";
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 import { X } from "lucide-react";
 import logoImage from "./../assets/logo-.png";
 import HelpCenter from "./../pages/HelpCenter";
@@ -13,22 +9,15 @@ import "./../styles/Footer.css";
 
 export default function Footer() {
   const [modalContent, setModalContent] = useState(null);
-<<<<<<< HEAD
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if device is mobile
+  // Detect mobile screen
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
-=======
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 
   const quickLinks = [
     { href: "#about", label: "About Us" },
@@ -46,7 +35,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: "fab fa-facebook-f", href: "https://facebook.com/futuremodetech", label: "Facebook", color: "#1877f2" },
-    { icon: "fab fa-x-twitter", href: "https://twitter.com/futuremodetech", label: "X (Twitter)", color: "#000000" },
+    { icon: "fab fa-twitter", href: "https://twitter.com/futuremodetech", label: "X (Twitter)", color: "#000000" },
     { icon: "fab fa-linkedin-in", href: "https://linkedin.com/company/futuremodetech", label: "LinkedIn", color: "#0077b5" },
     { icon: "fab fa-instagram", href: "https://instagram.com/futuremodetech", label: "Instagram", color: "#e4405f" },
   ];
@@ -54,66 +43,40 @@ export default function Footer() {
   const handleNavClick = (href) => {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
-<<<<<<< HEAD
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-=======
-      if (element) element.scrollIntoView({ behavior: "smooth" });
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
+      if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   const openModal = (id) => setModalContent(id);
   const closeModal = () => setModalContent(null);
 
-<<<<<<< HEAD
-  // Close modal on escape key
+  // Close modal on Escape key and disable body scroll when modal is open
   useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') closeModal();
-    };
-    
+    const handleEscape = (e) => { if (e.key === "Escape") closeModal(); };
+
     if (modalContent) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
-    
+
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
     };
   }, [modalContent]);
 
   return (
     <>
       <footer className="footer" role="contentinfo">
-=======
-  return (
-    <>
-      <footer className="footer">
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
         <div className="footer-container">
           <div className="footer-content">
             {/* Brand Section */}
             <div className="footer-brand">
               <div className="brand-header">
                 <div className="brand-logo-container">
-<<<<<<< HEAD
-                  <img 
-                    src={logoImage} 
-                    alt="Future Mode Technology Logo" 
-                    className="brand-logo"
-                    loading="lazy"
-                  />
-=======
-                  <img src={logoImage} alt="Logo" className="brand-logo" />
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
+                  <img src={logoImage} alt="Future Mode Technology Logo" className="brand-logo" loading="lazy" />
                 </div>
                 <span className="brand-name">Future Mode Technology</span>
               </div>
@@ -122,57 +85,25 @@ export default function Footer() {
               </p>
               <div className="social-links-title">Follow Us</div>
               <div className="social-links">
-<<<<<<< HEAD
                 {socialLinks.map((social) => (
                   <button
                     key={social.label}
                     onClick={() => window.open(social.href, "_blank", "noopener noreferrer")}
                     className="social-button"
                     aria-label={`Follow us on ${social.label}`}
-                    style={{ '--social-color': social.color }}
+                    style={{ "--social-color": social.color }}
                   >
                     <i className={social.icon}></i>
                   </button>
                 ))}
-=======
-                {socialLinks.map((social) => {
-                  return (
-                    <button
-                      key={social.label}
-                      onClick={() => window.open(social.href, "_blank")}
-                      className="social-button"
-                      aria-label={social.label}
-                      style={{ '--social-color': social.color }}
-                    >
-                      <i className={social.icon}></i>
-                    </button>
-                  );
-                })}
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
               </div>
             </div>
 
             {/* Quick Links */}
-<<<<<<< HEAD
-            <FooterSection 
-              title="Quick Links" 
-              links={quickLinks} 
-              onClick={handleNavClick} 
-            />
-
-            {/* Support Links */}
-            <FooterSection 
-              title="Support" 
-              links={supportLinks} 
-              onClick={openModal} 
-              isSupport 
-            />
-=======
             <FooterSection title="Quick Links" links={quickLinks} onClick={handleNavClick} />
 
             {/* Support Links */}
             <FooterSection title="Support" links={supportLinks} onClick={openModal} isSupport />
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 
             {/* Contact Info */}
             <div className="footer-section">
@@ -196,31 +127,23 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom">
-<<<<<<< HEAD
             © 2025 Future Mode Technology. Crafted with <span className="footer-heart" aria-label="love">❤️</span> for the future of education.
-=======
-            © 2025 Future Mode Technology. Crafted with <span className="footer-heart">❤️</span> for the future of education.
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
           </div>
         </div>
       </footer>
 
       {/* Modals */}
       {modalContent && (
-<<<<<<< HEAD
-        <div 
-          className="modal-overlay" 
+        <div
+          className="modal-overlay"
           onClick={closeModal}
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-title"
         >
-          <div 
-            className="modal-content" 
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button 
-              onClick={closeModal} 
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={closeModal}
               className="modal-close-button"
               aria-label="Close modal"
             >
@@ -232,13 +155,6 @@ export default function Footer() {
               {modalContent === "terms" && "Terms of Service"}
               {modalContent === "faq" && "Frequently Asked Questions"}
             </div>
-=======
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button onClick={closeModal} className="modal-close-button">
-              <X size={24} />
-            </button>
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
             {modalContent === "help" && <HelpCenter />}
             {modalContent === "privacy" && <PrivacyPolicy />}
             {modalContent === "terms" && <TermsOfService />}
@@ -250,22 +166,17 @@ export default function Footer() {
   );
 }
 
-<<<<<<< HEAD
-// Reusable Footer Section Component
-=======
 // Reusable Footer Section
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 function FooterSection({ title, links, onClick, isSupport = false }) {
   return (
     <div className="footer-section">
       <h3 className="footer-section-title">{title}</h3>
-<<<<<<< HEAD
       <nav aria-label={title}>
         <ul className="footer-links">
           {links.map((link) => (
             <li key={isSupport ? link.id : link.href}>
-              <button 
-                onClick={() => onClick(isSupport ? link.id : link.href)} 
+              <button
+                onClick={() => onClick(isSupport ? link.id : link.href)}
                 className="footer-link"
                 aria-label={link.label}
               >
@@ -278,32 +189,3 @@ function FooterSection({ title, links, onClick, isSupport = false }) {
     </div>
   );
 }
-
-// Add this to your global CSS for screen readers
-const screenReaderOnly = `
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-`;
-=======
-      <ul className="footer-links">
-        {links.map((link) => (
-          <li key={isSupport ? link.id : link.href}>
-            <button onClick={() => onClick(isSupport ? link.id : link.href)} className="footer-link">
-              {link.label}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
