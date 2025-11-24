@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
+=======
+import { useState } from "react";
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 import { X } from "lucide-react";
 import logoImage from "./../assets/logo-.png";
 import HelpCenter from "./../pages/HelpCenter";
@@ -9,6 +13,7 @@ import "./../styles/Footer.css";
 
 export default function Footer() {
   const [modalContent, setModalContent] = useState(null);
+<<<<<<< HEAD
   const [isMobile, setIsMobile] = useState(false);
 
   // Check if device is mobile
@@ -22,6 +27,8 @@ export default function Footer() {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+=======
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 
   const quickLinks = [
     { href: "#about", label: "About Us" },
@@ -47,18 +54,23 @@ export default function Footer() {
   const handleNavClick = (href) => {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
+<<<<<<< HEAD
       if (element) {
         element.scrollIntoView({ 
           behavior: "smooth",
           block: "start"
         });
       }
+=======
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
     }
   };
 
   const openModal = (id) => setModalContent(id);
   const closeModal = () => setModalContent(null);
 
+<<<<<<< HEAD
   // Close modal on escape key
   useEffect(() => {
     const handleEscape = (e) => {
@@ -81,18 +93,27 @@ export default function Footer() {
   return (
     <>
       <footer className="footer" role="contentinfo">
+=======
+  return (
+    <>
+      <footer className="footer">
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
         <div className="footer-container">
           <div className="footer-content">
             {/* Brand Section */}
             <div className="footer-brand">
               <div className="brand-header">
                 <div className="brand-logo-container">
+<<<<<<< HEAD
                   <img 
                     src={logoImage} 
                     alt="Future Mode Technology Logo" 
                     className="brand-logo"
                     loading="lazy"
                   />
+=======
+                  <img src={logoImage} alt="Logo" className="brand-logo" />
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
                 </div>
                 <span className="brand-name">Future Mode Technology</span>
               </div>
@@ -101,6 +122,7 @@ export default function Footer() {
               </p>
               <div className="social-links-title">Follow Us</div>
               <div className="social-links">
+<<<<<<< HEAD
                 {socialLinks.map((social) => (
                   <button
                     key={social.label}
@@ -112,10 +134,26 @@ export default function Footer() {
                     <i className={social.icon}></i>
                   </button>
                 ))}
+=======
+                {socialLinks.map((social) => {
+                  return (
+                    <button
+                      key={social.label}
+                      onClick={() => window.open(social.href, "_blank")}
+                      className="social-button"
+                      aria-label={social.label}
+                      style={{ '--social-color': social.color }}
+                    >
+                      <i className={social.icon}></i>
+                    </button>
+                  );
+                })}
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
               </div>
             </div>
 
             {/* Quick Links */}
+<<<<<<< HEAD
             <FooterSection 
               title="Quick Links" 
               links={quickLinks} 
@@ -129,6 +167,12 @@ export default function Footer() {
               onClick={openModal} 
               isSupport 
             />
+=======
+            <FooterSection title="Quick Links" links={quickLinks} onClick={handleNavClick} />
+
+            {/* Support Links */}
+            <FooterSection title="Support" links={supportLinks} onClick={openModal} isSupport />
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 
             {/* Contact Info */}
             <div className="footer-section">
@@ -152,13 +196,18 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom">
+<<<<<<< HEAD
             © 2025 Future Mode Technology. Crafted with <span className="footer-heart" aria-label="love">❤️</span> for the future of education.
+=======
+            © 2025 Future Mode Technology. Crafted with <span className="footer-heart">❤️</span> for the future of education.
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
           </div>
         </div>
       </footer>
 
       {/* Modals */}
       {modalContent && (
+<<<<<<< HEAD
         <div 
           className="modal-overlay" 
           onClick={closeModal}
@@ -183,6 +232,13 @@ export default function Footer() {
               {modalContent === "terms" && "Terms of Service"}
               {modalContent === "faq" && "Frequently Asked Questions"}
             </div>
+=======
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button onClick={closeModal} className="modal-close-button">
+              <X size={24} />
+            </button>
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
             {modalContent === "help" && <HelpCenter />}
             {modalContent === "privacy" && <PrivacyPolicy />}
             {modalContent === "terms" && <TermsOfService />}
@@ -194,11 +250,16 @@ export default function Footer() {
   );
 }
 
+<<<<<<< HEAD
 // Reusable Footer Section Component
+=======
+// Reusable Footer Section
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 function FooterSection({ title, links, onClick, isSupport = false }) {
   return (
     <div className="footer-section">
       <h3 className="footer-section-title">{title}</h3>
+<<<<<<< HEAD
       <nav aria-label={title}>
         <ul className="footer-links">
           {links.map((link) => (
@@ -232,3 +293,17 @@ const screenReaderOnly = `
   border: 0;
 }
 `;
+=======
+      <ul className="footer-links">
+        {links.map((link) => (
+          <li key={isSupport ? link.id : link.href}>
+            <button onClick={() => onClick(isSupport ? link.id : link.href)} className="footer-link">
+              {link.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec

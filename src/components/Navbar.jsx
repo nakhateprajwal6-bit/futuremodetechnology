@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun, ChevronDown } from "lucide-react";
 import logoImage from "../assets/logo-.png";
+=======
+
+import { useState, useEffect } from "react";
+import { GraduationCap, Menu, X, Moon, Sun } from "lucide-react";
+import logoImage from "../assets/logo.png";
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 import "./../styles/Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
+<<<<<<< HEAD
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const navItems = [
@@ -25,11 +33,24 @@ export default function Navbar() {
     { href: "#about", label: "About Us" },
     { href: "#programs", label: "Programs" },
     { href: "#gallery", label: "Gallery" },
+=======
+
+  const navItems = [
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#vision", label: "Vision" },
+    { href: "#programs", label: "Programs" },
+    
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
     { href: "#contact", label: "Contact" },
   ];
 
   useEffect(() => {
+<<<<<<< HEAD
     const handleScroll = () => setScrolled(window.scrollY > 20);
+=======
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -57,12 +78,16 @@ export default function Navbar() {
       if (element) element.scrollIntoView({ behavior: "smooth" });
     }
     setIsOpen(false);
+<<<<<<< HEAD
     setActiveDropdown(null);
+=======
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
   };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setIsOpen(false);
+<<<<<<< HEAD
     setActiveDropdown(null);
   };
 
@@ -128,6 +153,46 @@ export default function Navbar() {
                 Get Started
               </button>
             </div>
+=======
+  };
+
+  const themeIcon = isDark ? <Sun className="icon" /> : <Moon className="icon" />;
+
+  return (
+    <nav className={`navbar ${scrolled ? "navbar-scrolled" : "navbar-transparent"}`}>
+      <div className="navbar-container">
+        <div className="navbar-content">
+          {/* Logo */}
+          <div className="logo-container" onClick={scrollToTop}>
+            <img src={logoImage} alt="Logo" className="logo-image" />
+            <h1 className="logo-text">
+              <span className="logo-text-gradient">
+                FutureMode Technology
+              </span>
+            </h1>
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="desktop-nav">
+            <nav className="nav-links" role="navigation" aria-label="Main navigation">
+              {navItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => handleNavClick(item.href)}
+                  className="nav-button"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+            <button
+              onClick={toggleTheme}
+              className="icon-button theme-toggle"
+              aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+            >
+              {themeIcon}
+            </button>
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -135,14 +200,20 @@ export default function Navbar() {
             className="mobile-menu-toggle"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
+<<<<<<< HEAD
             aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
+=======
+          >
+            {isOpen ? <X className="mobile-icon" /> : <Menu className="mobile-icon" />}
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
+<<<<<<< HEAD
       <div className={`mobile-menu ${isOpen ? 'mobile-menu-open' : ''}`}>
         <div className="mobile-menu-content">
           {navItems.map((item) => (
@@ -185,3 +256,38 @@ export default function Navbar() {
     </nav>
   );
 }
+=======
+      {isOpen && (
+        <div className="mobile-menu">
+          <div className="mobile-menu-content">
+            {navItems.map((item) => (
+              <button
+                key={item.href}
+                onClick={() => handleNavClick(item.href)}
+                className="mobile-nav-button"
+              >
+                {item.label}
+              </button>
+            ))}
+            <button
+              onClick={toggleTheme}
+              className="mobile-theme-button"
+              aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+            >
+              {isDark ? (
+                <>
+                  <Sun className="theme-icon" /> Light Mode
+                </>
+              ) : (
+                <>
+                  <Moon className="theme-icon" /> Dark Mode
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec

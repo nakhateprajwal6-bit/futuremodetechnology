@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import { MessageCircle, X, Send, Bot, User, Settings, ThumbsUp, ThumbsDown } from "lucide-react";
 import "./../styles/Chatbot.css";
@@ -172,6 +173,38 @@ export default function Chatbot({ config = {} }) {
 
     const key = context || "general";
     setSuggestedQuestions(suggestions[key] || suggestions.general);
+=======
+import { useState, useRef, useLayoutEffect } from "react";
+import { MessageCircle, X, Send } from "lucide-react";
+import "./../styles/Chatbot.css";
+
+export default function Chatbot() {
+  const [isOpen, setIsOpen] = useState(true);
+  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+  const containerRef = useRef(null);
+
+  // Bot response logic
+  const getBotResponse = (userMessage) => {
+    const lower = userMessage.toLowerCase();
+
+    if (lower.includes("robotic")) return "Robotics Lab teaches building intelligent robotic systems.";
+    if (lower.includes("industrial")) return "Industrial Training prepares you for real-world engineering environments.";
+    if (lower.includes("iot")) return "IoT program connects and controls devices via smart technologies.";
+    if (lower.includes("3d")) return "3D Printing program lets you create physical prototypes from digital models.";
+    if (lower.includes("internship")) return "Our Internship Programs provide hands-on experience in robotics and tech.";
+    if (lower.includes("cad")) return "CAD Designing teaches 2D & 3D design and modeling techniques.";
+    if (lower.includes("r&d") || lower.includes("rd")) return "R&D Services help in prototyping and innovation.";
+    if (lower.includes("web")) return "Web Development program teaches frontend and backend development using modern frameworks.";
+    if (lower.includes("mobile")) return "Mobile App Development covers iOS & Android app development.";
+    if (lower.includes("data")) return "Data Science program covers analytics, ML, and data-driven decision making.";
+    if (lower.includes("cybersecurity")) return "Cybersecurity program teaches protecting systems and networks.";
+    if (lower.includes("devops")) return "DevOps Engineering program teaches CI/CD and infrastructure automation.";
+    if (lower.includes("blockchain")) return "Blockchain Development covers smart contracts and decentralized applications.";
+    if (lower.includes("software")) return "Software Development program teaches coding, architecture, and project building.";
+
+    return "Hi! Ask me about Robotics Lab, Industrial Training, IoT, 3D Printing, Internship Programs, CAD, R&D Services, Web/Mobile Development, Data Science, Cybersecurity, DevOps, Blockchain, or Software Development.";
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
   };
 
   // Handle sending a message
@@ -179,6 +212,7 @@ export default function Chatbot({ config = {} }) {
     e.preventDefault();
     if (!message.trim()) return;
 
+<<<<<<< HEAD
     const userMsg = { 
       id: Date.now(), 
       message: message.trim(), 
@@ -261,6 +295,16 @@ export default function Chatbot({ config = {} }) {
       };
       setMessages(prev => [...prev, thankYouMsg]);
     }
+=======
+    const userMsg = { id: Date.now(), message: message.trim(), isBot: false };
+    setMessages((prev) => [...prev, userMsg]);
+    setMessage("");
+
+    setTimeout(() => {
+      const botMsg = { id: Date.now() + 1, message: getBotResponse(userMsg.message), isBot: true };
+      setMessages((prev) => [...prev, botMsg]);
+    }, 500);
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
   };
 
   // Auto-scroll to bottom on new messages
@@ -268,6 +312,7 @@ export default function Chatbot({ config = {} }) {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
+<<<<<<< HEAD
   }, [messages, isTyping]);
 
   // Focus input when chat opens
@@ -293,11 +338,18 @@ export default function Chatbot({ config = {} }) {
       className={`chatbot-container ${chatbotConfig.position}`}
       style={dynamicStyles}
     >
+=======
+  }, [messages]);
+
+  return (
+    <div className="chatbot-container">
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
       {/* Chat Window */}
       {isOpen && (
         <div className="chat-window">
           {/* Header */}
           <div className="chat-header">
+<<<<<<< HEAD
             <div className="chat-title-container">
               <Bot className="chat-bot-icon" />
               <div>
@@ -309,6 +361,12 @@ export default function Chatbot({ config = {} }) {
               onClick={() => setIsOpen(false)}
               className="chat-close-button"
               aria-label="Close chat"
+=======
+            <h3 className="chat-title">Tech Support Assistant</h3>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="chat-close-button"
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
             >
               <X />
             </button>
@@ -317,6 +375,7 @@ export default function Chatbot({ config = {} }) {
           {/* Messages */}
           <div ref={containerRef} className="messages-container">
             {messages.length === 0 && (
+<<<<<<< HEAD
               <div className="welcome-section">
                 <div className="welcome-message">
                   <Bot className="welcome-icon" />
@@ -340,6 +399,12 @@ export default function Chatbot({ config = {} }) {
                     ))}
                   </div>
                 </div>
+=======
+              <div className="welcome-message">
+                <p>
+                  Hi! Ask me about Robotics Lab, Industrial Training, IoT, 3D Printing, Internship Programs, CAD, R&D Services, Web/Mobile Development, Data Science, Cybersecurity, DevOps, Blockchain, or Software Development.
+                </p>
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
               </div>
             )}
 
@@ -348,6 +413,7 @@ export default function Chatbot({ config = {} }) {
                 key={msg.id}
                 className={`message ${msg.isBot ? "bot" : "user"}`}
               >
+<<<<<<< HEAD
                 {chatbotConfig.showAvatars && (
                   <div className="message-avatar">
                     {msg.isBot ? <Bot /> : <User />}
@@ -398,12 +464,18 @@ export default function Chatbot({ config = {} }) {
                 </div>
               </div>
             )}
+=======
+                <p>{msg.message}</p>
+              </div>
+            ))}
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
           </div>
 
           {/* Input */}
           <div className="chat-input-container">
             <form onSubmit={handleSendMessage} className="chat-input-form">
               <input
+<<<<<<< HEAD
                 ref={inputRef}
                 type="text"
                 className="chat-input"
@@ -411,12 +483,22 @@ export default function Chatbot({ config = {} }) {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 aria-label="Type your message"
+=======
+                type="text"
+                className="chat-input"
+                placeholder="Type your message..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
               />
               <button 
                 type="submit" 
                 className="chat-send-button"
                 disabled={!message.trim()}
+<<<<<<< HEAD
                 aria-label="Send message"
+=======
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
               >
                 <Send />
               </button>
@@ -429,13 +511,21 @@ export default function Chatbot({ config = {} }) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="chat-toggle-button"
+<<<<<<< HEAD
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? <X /> : <MessageCircle />}
+=======
+      >
+        <MessageCircle />
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
       </button>
     </div>
   );
 }
+<<<<<<< HEAD
 
 // Export configuration for easy customization
 export { defaultConfig };
+=======
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec

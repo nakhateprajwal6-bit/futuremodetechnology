@@ -13,6 +13,7 @@ import g11 from "./../assets/g11.jpg";
 import g13 from "./../assets/g13.jpg";
 import g14 from "./../assets/g14.jpg";
 import g15 from "./../assets/g15.jpg";
+<<<<<<< HEAD
 import g16 from "./../assets/g16.jpg";
 import "./../styles/Gallery.css";
 
@@ -32,6 +33,25 @@ const galleryImages = [
   { src: g13, alt: "", span: "" },
   { src: g15, alt: "", span: "" },
   { src: g16, alt: "", span: "" }
+=======
+import "./../styles/Gallery.css";
+
+const galleryImages = [
+  { src: g1, alt: "Modern university campus with students walking between buildings", span: "span-large" },
+  { src: g2, alt: "Students working with computers in a modern classroom", span: "" },
+  { src: g3, alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: g4, alt: "Happy graduates in caps and gowns celebrating", span: "" },
+  { src: g5, alt: "Professional team meeting with laptops and collaboration", span: "" },
+  { src: g11, alt: "Programming classroom with multiple monitors and coding workstations", span: "span-large" },
+  { src: g10, alt: "Students working with computers in a modern classroom", span: "" },
+  { src: g7, alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: g9, alt: "Happy graduates in caps and gowns celebrating", span: "" },
+  { src: g8, alt: "Professional team meeting with laptops and collaboration", span: "" },
+  { src: g6, alt: "Programming classroom with multiple monitors and coding workstations", span: "span-large" },
+  { src: g14, alt: "Students working with computers in a modern classroom", span: "" },
+  { src: g13, alt: "Advanced technology equipment and lab setup", span: "" },
+  { src: g15, alt: "Happy graduates in caps and gowns celebrating", span: "" },
+>>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 ];
 
 export default function Gallery() {
