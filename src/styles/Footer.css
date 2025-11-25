@@ -18,6 +18,7 @@
   padding: 0 1rem;
 }
 
+<<<<<<< HEAD
 @media (min-width: 640px) {
   .footer-container {
     padding: 0 1.5rem;
@@ -30,6 +31,8 @@
   }
 }
 
+=======
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 /* Footer Grid */
 .footer-content {
   display: grid;
@@ -93,6 +96,10 @@
   color: rgba(245, 245, 245, 0.85);
 }
 
+<<<<<<< HEAD
+=======
+/* Social Links */
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 .social-links-title {
   font-size: 0.75rem;
   font-weight: 600;
@@ -102,7 +109,10 @@
   letter-spacing: 0.5px;
 }
 
+<<<<<<< HEAD
 /* Social Links */
+=======
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 .social-links {
   display: flex;
   gap: 0.75rem;
@@ -178,6 +188,32 @@
   color: #f5f5f5;
 }
 
+<<<<<<< HEAD
+=======
+/* Contact Info Styles */
+.contact-info {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.contact-highlight {
+  font-weight: 500;
+  color: #60a5fa;
+}
+
+.dark .contact-info {
+  color: rgba(245, 245, 245, 0.8);
+}
+
+.dark .contact-highlight {
+  color: #34d399;
+}
+
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 /* Footer Bottom */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -186,6 +222,10 @@
   text-align: center;
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.7);
+<<<<<<< HEAD
+=======
+  line-height: 1.5;
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 }
 
 .dark .footer-bottom {
@@ -193,6 +233,19 @@
   color: rgba(245, 245, 245, 0.65);
 }
 
+<<<<<<< HEAD
+=======
+.footer-heart {
+  color: #f87171;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 /* Modal Styles */
 .modal-overlay {
   position: fixed;
@@ -210,7 +263,11 @@
   border-radius: 0.5rem;
   max-width: 36rem;
   width: 100%;
+<<<<<<< HEAD
   height: 70vh;
+=======
+  max-height: 90vh;
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
   overflow-y: auto;
   position: relative;
   padding: 1rem;
@@ -226,12 +283,17 @@
   cursor: pointer;
   padding: 0.25rem;
   border-radius: 0.25rem;
+<<<<<<< HEAD
+=======
+  z-index: 10;
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 }
 
 .modal-close-button:hover {
   color: #1f2937;
 }
 
+<<<<<<< HEAD
 /* Removed global variable overrides - kept in src/index.css only */
 
 /* Contact Info Styles */
@@ -268,4 +330,60 @@
   50% {
     opacity: 0.5;
   }
+=======
+/* Responsive Styles */
+@media (min-width: 640px) {
+  .footer-container { padding: 0 1.5rem; }
+  .footer { padding: 3rem 0; }
+  .footer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: span 2; }
+  .brand-header { flex-wrap: nowrap; }
+}
+
+@media (min-width: 768px) {
+  .footer-content { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; }
+  .footer-brand { grid-column: span 1; }
+  .brand-description { font-size: 0.9rem; }
+}
+
+@media (min-width: 1024px) {
+  .footer-container { padding: 0 2rem; }
+  .footer { padding: 4rem 0; }
+  .footer-content { gap: 3rem; }
+}
+
+@media (min-width: 1280px) {
+  .footer-container { padding: 0; }
+}
+
+/* Mobile Landscape and Very Small Screens */
+@media (max-width: 480px) {
+  .footer-container { padding: 0 0.75rem; }
+  .footer { padding: 1.5rem 0; }
+  .footer-content { gap: 1.5rem; }
+  .brand-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .brand-name { font-size: 1.1rem; }
+  .brand-description { font-size: 0.8rem; }
+  .social-links { justify-content: center; }
+  .footer-section-title { font-size: 0.8rem; }
+  .footer-links { font-size: 0.8rem; }
+  .contact-info { font-size: 0.8rem; }
+  .footer-bottom { font-size: 0.7rem; margin-top: 1.5rem; padding-top: 0.75rem; }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .brand-logo { image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .social-button { transition: none; transform: none; }
+  .footer-heart { animation: none; }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .footer { background-color: rgba(10, 10, 10, 0.95); }
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState } from "react";
+=======
+import { useState, useEffect } from "react";
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 import { X } from "lucide-react";
 import logoImage from "./../assets/logo-.png";
 import HelpCenter from "./../pages/HelpCenter";
@@ -9,6 +13,18 @@ import "./../styles/Footer.css";
 
 export default function Footer() {
   const [modalContent, setModalContent] = useState(null);
+<<<<<<< HEAD
+=======
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
 
   const quickLinks = [
     { href: "#about", label: "About Us" },
@@ -26,7 +42,11 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: "fab fa-facebook-f", href: "https://facebook.com/futuremodetech", label: "Facebook", color: "#1877f2" },
+<<<<<<< HEAD
     { icon: "fab fa-x-twitter", href: "https://twitter.com/futuremodetech", label: "X (Twitter)", color: "#000000" },
+=======
+    { icon: "fab fa-twitter", href: "https://twitter.com/futuremodetech", label: "X (Twitter)", color: "#000000" },
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
     { icon: "fab fa-linkedin-in", href: "https://linkedin.com/company/futuremodetech", label: "LinkedIn", color: "#0077b5" },
     { icon: "fab fa-instagram", href: "https://instagram.com/futuremodetech", label: "Instagram", color: "#e4405f" },
   ];
@@ -34,23 +54,54 @@ export default function Footer() {
   const handleNavClick = (href) => {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
+<<<<<<< HEAD
       if (element) element.scrollIntoView({ behavior: "smooth" });
+=======
+      if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
     }
   };
 
   const openModal = (id) => setModalContent(id);
   const closeModal = () => setModalContent(null);
 
+<<<<<<< HEAD
   return (
     <>
       <footer className="footer">
+=======
+  // Close modal on Escape key and disable body scroll when modal is open
+  useEffect(() => {
+    const handleEscape = (e) => { if (e.key === "Escape") closeModal(); };
+
+    if (modalContent) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [modalContent]);
+
+  return (
+    <>
+      <footer className="footer" role="contentinfo">
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
         <div className="footer-container">
           <div className="footer-content">
             {/* Brand Section */}
             <div className="footer-brand">
               <div className="brand-header">
                 <div className="brand-logo-container">
+<<<<<<< HEAD
                   <img src={logoImage} alt="Logo" className="brand-logo" />
+=======
+                  <img src={logoImage} alt="Future Mode Technology Logo" className="brand-logo" loading="lazy" />
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
                 </div>
                 <span className="brand-name">Future Mode Technology</span>
               </div>
@@ -59,6 +110,7 @@ export default function Footer() {
               </p>
               <div className="social-links-title">Follow Us</div>
               <div className="social-links">
+<<<<<<< HEAD
                 {socialLinks.map((social) => {
                   return (
                     <button
@@ -72,6 +124,19 @@ export default function Footer() {
                     </button>
                   );
                 })}
+=======
+                {socialLinks.map((social) => (
+                  <button
+                    key={social.label}
+                    onClick={() => window.open(social.href, "_blank", "noopener noreferrer")}
+                    className="social-button"
+                    aria-label={`Follow us on ${social.label}`}
+                    style={{ "--social-color": social.color }}
+                  >
+                    <i className={social.icon}></i>
+                  </button>
+                ))}
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
               </div>
             </div>
 
@@ -103,18 +168,46 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom">
+<<<<<<< HEAD
             © 2025 Future Mode Technology. Crafted with <span className="footer-heart">❤️</span> for the future of education.
+=======
+            © 2025 Future Mode Technology. Crafted with <span className="footer-heart" aria-label="love">❤️</span> for the future of education.
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
           </div>
         </div>
       </footer>
 
       {/* Modals */}
       {modalContent && (
+<<<<<<< HEAD
         <div className="modal-overlay">
           <div className="modal-content">
             <button onClick={closeModal} className="modal-close-button">
               <X size={24} />
             </button>
+=======
+        <div
+          className="modal-overlay"
+          onClick={closeModal}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={closeModal}
+              className="modal-close-button"
+              aria-label="Close modal"
+            >
+              <X size={isMobile ? 20 : 24} />
+            </button>
+            <div id="modal-title" className="sr-only">
+              {modalContent === "help" && "Help Center"}
+              {modalContent === "privacy" && "Privacy Policy"}
+              {modalContent === "terms" && "Terms of Service"}
+              {modalContent === "faq" && "Frequently Asked Questions"}
+            </div>
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
             {modalContent === "help" && <HelpCenter />}
             {modalContent === "privacy" && <PrivacyPolicy />}
             {modalContent === "terms" && <TermsOfService />}
@@ -131,6 +224,7 @@ function FooterSection({ title, links, onClick, isSupport = false }) {
   return (
     <div className="footer-section">
       <h3 className="footer-section-title">{title}</h3>
+<<<<<<< HEAD
       <ul className="footer-links">
         {links.map((link) => (
           <li key={isSupport ? link.id : link.href}>
@@ -140,6 +234,23 @@ function FooterSection({ title, links, onClick, isSupport = false }) {
           </li>
         ))}
       </ul>
+=======
+      <nav aria-label={title}>
+        <ul className="footer-links">
+          {links.map((link) => (
+            <li key={isSupport ? link.id : link.href}>
+              <button
+                onClick={() => onClick(isSupport ? link.id : link.href)}
+                className="footer-link"
+                aria-label={link.label}
+              >
+                {link.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+>>>>>>> 8c7a750d5aaf2bfb6f6ba54e52d9c80512c2dd71
     </div>
   );
 }
