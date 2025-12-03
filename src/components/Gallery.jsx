@@ -13,27 +13,7 @@ import g11 from "./../assets/g11.jpg";
 import g13 from "./../assets/g13.jpg";
 import g14 from "./../assets/g14.jpg";
 import g15 from "./../assets/g15.jpg";
-<<<<<<< HEAD
 import g16 from "./../assets/g16.jpg";
-import "./../styles/Gallery.css";
-
-const galleryImages = [
-  { src: g1, alt: "", span: "span-large" },
-  { src: g2, alt: "", span: "" },
-  { src: g3, alt: "", span: "" },
-  { src: g4, alt: "", span: "" },
-  { src: g5, alt: "", span: "" },
-  { src: g11, alt: "", span: "span-large" },
-  { src: g10, alt: "", span: "" },
-  { src: g7, alt: "", span: "" },
-  { src: g9, alt: "", span: "" },
-  { src: g8, alt: "", span: "" },
-  { src: g6, alt: "", span: "span-large" },
-  { src: g14, alt: "", span: "" },
-  { src: g13, alt: "", span: "" },
-  { src: g15, alt: "", span: "" },
-  { src: g16, alt: "", span: "" }
-=======
 import "./../styles/Gallery.css";
 
 const galleryImages = [
@@ -51,7 +31,7 @@ const galleryImages = [
   { src: g14, alt: "Students working with computers in a modern classroom", span: "" },
   { src: g13, alt: "Advanced technology equipment and lab setup", span: "" },
   { src: g15, alt: "Happy graduates in caps and gowns celebrating", span: "" },
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
+  { src: g16, alt: "Additional gallery image showing learning environment", span: "" }
 ];
 
 export default function Gallery() {

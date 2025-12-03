@@ -6,13 +6,10 @@ import About from "./pages/About";
 import VisionMission from "./components/VisionMission";
 import Programs from "./components/Programs";
 import WhatWeOffer from "./components/WhatWeOffer";
+import Gallery from "./components/Gallery"; // Keep import
 import Chatbot from "./components/Chatbot";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
-<<<<<<< HEAD
-import Gallery from "./components/Gallery";
-=======
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
 
 const App = () => {
   return (
@@ -23,10 +20,7 @@ const App = () => {
       <VisionMission />
       <WhatWeOffer />
       <Programs />
-<<<<<<< HEAD
-      <Gallery />
-=======
->>>>>>> b762ab8bef42ca9929d080f43d790c0e517208ec
+      <Gallery /> {/* Place wherever you prefer */}
       <Chatbot />
       <Contact />
       <Footer />
