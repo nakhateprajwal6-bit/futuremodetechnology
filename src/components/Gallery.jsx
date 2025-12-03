@@ -1,20 +1,20 @@
 import { useState } from "react";
-import g1 from "./../assets/g1.jpg";
-import g2 from "./../assets/g2.jpg";
-import g3 from "./../assets/g3.jpg";
-import g4 from "./../assets/g4.jpg";
-import g5 from "./../assets/g5.jpg";
-import g6 from "./../assets/g6.jpg";
-import g7 from "./../assets/g7.jpg";
-import g8 from "./../assets/g8.jpg";
-import g9 from "./../assets/g9.jpg";
-import g10 from "./../assets/g10.jpg";
-import g11 from "./../assets/g11.jpg";
-import g13 from "./../assets/g13.jpg";
-import g14 from "./../assets/g14.jpg";
-import g15 from "./../assets/g15.jpg";
-import g16 from "./../assets/g16.jpg";
-import "./../styles/Gallery.css";
+import g1 from "../assets/g1.jpg";
+import g2 from "../assets/g2.jpg";
+import g3 from "../assets/g3.jpg";
+import g4 from "../assets/g4.jpg";
+import g5 from "../assets/g5.jpg";
+import g6 from "../assets/g6.jpg";
+import g7 from "../assets/g7.jpg";
+import g8 from "../assets/g8.jpg";
+import g9 from "../assets/g9.jpg";
+import g10 from "../assets/g10.jpg";
+import g11 from "../assets/g11.jpg";
+import g13 from "../assets/g13.jpg";
+import g14 from "../assets/g14.jpg";
+import g15 from "../assets/g15.jpg";
+import g16 from "../assets/g16.jpg";
+import "../styles/Gallery.css";
 
 const galleryImages = [
   { src: g1, alt: "Modern university campus with students walking between buildings", span: "span-large" },
