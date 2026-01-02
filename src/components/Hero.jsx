@@ -143,7 +143,7 @@ export default function Hero() {
           {/* Main Content */}
           <div className="hero-main">
             <div className="hero-badge">
-              <span>Innovating Tomorrow's Technology</span>
+              <span>Unlock The Future With FutureMode Technology</span>
             </div>
             
             <h1 className="hero-title">
